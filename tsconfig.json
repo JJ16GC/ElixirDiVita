@@ -1,0 +1,12 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json",
+      "moduleResolution": "bundler"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
+}
