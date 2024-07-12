@@ -1,21 +1,42 @@
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
+
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.classList.add("show");
+    } else {
+      document.body.classList.remove("show");
+    }
+    // Cleanup function to remove class on component unmount
+    return () => {
+      document.body.classList.remove("show");
+    };
+  }, [isMenuOpen]);
+
   return (
     <header>
       <div className="container">
         <nav className="navbar">
-          <div className="menu-toggle">
-            
-
-            <i className="fas fa-bars"><FontAwesomeIcon className="fa-bars" icon={faBars} /></i>
-            <i className="fas fa-times"></i>
+          <div className="menu-toggle" onClick={toggleMenu}>
+            <i className="fas fa-bars">
+              <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
+            </i>
+            <i className="fas fa-times">
+            <FontAwesomeIcon icon={faXmark} />
+            </i>
           </div>
           <a href="index.html" className="logo">
             Elixir Di Vita
           </a>
-          <ul className="nav-list">
+          <ul className={`nav-list ${isMenuOpen ? "active" : ""}`}>
             <li className="nav-item">
               <a href="index.html" className="nav-link active">
                 Home
