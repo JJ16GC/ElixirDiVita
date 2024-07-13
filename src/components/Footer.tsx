@@ -1,3 +1,4 @@
+
 const Footer = () => {
   return (
     <footer>
@@ -17,7 +18,6 @@ const Footer = () => {
               <ul className="social-icons">
                 <li>
                   <a href="#">
-                    <i className="fab fa-facebook-f"></i>
                   </a>
                 </li>
                 <li>

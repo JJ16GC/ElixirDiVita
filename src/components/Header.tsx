@@ -34,7 +34,7 @@ const Header = () => {
             </i>
           </div>
           <a href="index.html" className="logo">
-            Elixir Di Vita
+            Elisir Di Vita
           </a>
           <ul className={`nav-list ${isMenuOpen ? "active" : ""}`}>
             <li className="nav-item">
@@ -49,7 +49,7 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <a href="about.html#reservation" className="nav-link">
-                Reservaciones
+                Productos
               </a>
             </li>
             <li className="nav-item">
