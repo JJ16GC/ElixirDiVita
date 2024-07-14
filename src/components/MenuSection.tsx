@@ -14,13 +14,13 @@ const MenuSection = () => {
                     </Col>
                     <Col md={6} className="description animate-right">
                         <div className="global-headline">
-                            <h2 className="sub-headline">Explore</h2>
+                            <h2 className="sub-headline">Explora</h2>
                             <h3 className="headline headline-dark">Menu</h3>
                             <div className="asterisk"><i className="fas fa-asterisk"></i></div>
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptatum dolor earum
                             accusamus suscipit. Officia atque vitae excepturi deserunt nihil?</p>
-                        <a href="index.html" className="btn btn-secondary">See Full Menu</a>
+                        <a href="index.html" className="btn btn-secondary">Ver Menu Completo</a>
                     </Col>
                 </Row>
             </Container>

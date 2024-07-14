@@ -30,7 +30,7 @@ const Header = () => {
               <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
             </i>
             <i className="fas fa-times">
-            <FontAwesomeIcon icon={faXmark} />
+              <FontAwesomeIcon icon={faXmark} />
             </i>
           </div>
           <a href="index.html" className="logo">
