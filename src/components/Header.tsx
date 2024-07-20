@@ -38,22 +38,22 @@ const Header = () => {
           </a>
           <ul className={`nav-list ${isMenuOpen ? "active" : ""}`}>
             <li className="nav-item">
-              <a href="index.html" className="nav-link active">
+              <a href="/" className="nav-link active">
                 Home
               </a>
             </li>
             <li className="nav-item">
-              <a href="about.html" className="nav-link">
+              <a href="/about" className="nav-link">
                 Acerca de nosotros
               </a>
             </li>
             <li className="nav-item">
-              <a href="about.html#reservation" className="nav-link">
+              <a href="/productos" className="nav-link">
                 Productos
               </a>
             </li>
             <li className="nav-item">
-              <a href="bakers.html" className="nav-link">
+              <a href="/carrito" className="nav-link">
                 Carrito
               </a>
             </li>

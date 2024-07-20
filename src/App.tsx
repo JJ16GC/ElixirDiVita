@@ -1,21 +1,22 @@
-import Header from "./components/Header";
-import HeroSection from "./components/HeroSection";
-import StorySection from "./components/StorySection";
-import AlwaysFreshSection from "./components/AlwaysFreshSection";
-import MenuSection from "./components/MenuSection";
-import Footer from "./components/Footer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/Home";
+import AboutPage from "./pages/About";
+import ProductPage from "./pages/Product";
+import CartPage from "./components/CartModal";
+import Modal from "react-modal";
 
+Modal.setAppElement("#root");
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <HeroSection />
-      <StorySection />
-      <AlwaysFreshSection />
-      <MenuSection />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/productos" element={<ProductPage />} />
+        <Route path="/carrito"></Route>
+      </Routes>
+    </Router>
   );
 }
 

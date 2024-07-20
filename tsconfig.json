@@ -3,7 +3,7 @@
   "references": [
     {
       "path": "./tsconfig.app.json",
-      "moduleResolution": "bundler"
+      "moduleResolution": "bundler",
     },
     {
       "path": "./tsconfig.node.json"
