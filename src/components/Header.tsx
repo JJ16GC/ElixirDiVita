@@ -1,13 +1,19 @@
+// src/components/Header.tsx
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
+import CartModal from './CartModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showCart, setShowCart] = useState(false);
+  const [cartItems] = useState([
+    { id: 1, name: 'Chocolate A', price: 10000, quantity: 2 },
+    { id: 2, name: 'Chocolate B', price: 15000, quantity: 1 },
+  ]);
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const toggleCart = () => setShowCart(!showCart);
 
   useEffect(() => {
     if (isMenuOpen) {
@@ -15,7 +21,7 @@ const Header = () => {
     } else {
       document.body.classList.remove("show");
     }
-    // Cleanup function to remove class on component unmount
+
     return () => {
       document.body.classList.remove("show");
     };
@@ -26,14 +32,9 @@ const Header = () => {
       <div className="container">
         <nav className="navbar">
           <div className="menu-toggle" onClick={toggleMenu}>
-            <i className="fas fa-bars">
-              <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
-            </i>
-            <i className="fas fa-times">
-              <FontAwesomeIcon icon={faXmark} />
-            </i>
+            <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
           </div>
-          <a href="index.html" className="logo">
+          <a href="/" className="logo">
             Elisir Di Vita
           </a>
           <ul className={`nav-list ${isMenuOpen ? "active" : ""}`}>
@@ -53,13 +54,14 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="/carrito" className="nav-link">
+              <a href="#" className="nav-link" onClick={toggleCart}>
                 Carrito
               </a>
             </li>
           </ul>
         </nav>
       </div>
+      <CartModal show={showCart} handleClose={toggleCart} cartItems={cartItems} />
     </header>
   );
 };

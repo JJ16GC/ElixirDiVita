@@ -1,42 +1,29 @@
 // src/components/CartModal.tsx
 import React from 'react';
-import Modal from 'react-modal';
-import { CSSTransition } from 'react-transition-group';
-import '../styles/Cart.css'; // Agrega estilos personalizados aquí
+import '../styles/Cart.css'
 
 interface CartModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  cartItems: { id: number; name: string; quantity: number; price: number }[];
+  show: boolean;
+  handleClose: () => void;
+  cartItems: { id: number, name: string, price: number, quantity: number }[];
 }
 
-const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, cartItems }) => {
+const CartModal: React.FC<CartModalProps> = ({ show, handleClose, cartItems }) => {
   return (
-    <CSSTransition
-      in={isOpen}
-      timeout={300}
-      classNames="modal"
-      unmountOnExit
-    >
-      <Modal
-        isOpen={isOpen}
-        onRequestClose={onClose}
-        ariaHideApp={false}
-        className="modal-content"
-        overlayClassName="modal-overlay"
-      >
-        <button onClick={onClose} className="modal-close-button">X</button>
-        <h2>Your Cart</h2>
+    <div className={`cart-modal ${show ? 'show' : ''}`}>
+      <div className="cart-modal-content">
+        <span className="close" onClick={handleClose}>&times;</span>
+        <h2>Carrito de Compras</h2>
+        <br></br>
         <ul>
           {cartItems.map(item => (
             <li key={item.id}>
-              {item.name} - {item.quantity} x ${item.price.toFixed(2)}
+              {item.name} - {item.price} x {item.quantity}
             </li>
           ))}
         </ul>
-        <button onClick={onClose}>Close</button>
-      </Modal>
-    </CSSTransition>
+      </div>
+    </div>
   );
 };
 

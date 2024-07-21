@@ -2,7 +2,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
 import ProductPage from "./pages/Product";
-import CartPage from "./components/CartModal";
 import Modal from "react-modal";
 
 Modal.setAppElement("#root");
