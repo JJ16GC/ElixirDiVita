@@ -1,16 +1,17 @@
 // src/pages/ProductPage.tsx
 import React from "react";
-import Header from "../components/Header";
-import { useCart } from "../components/hooks/useCart";
+import { Product } from "../types";
 import ProductList from "../components/ProductList";
 
-const ProductPage: React.FC = () => {
-  const { products, handleAddToCart } = useCart();
+interface ProductPageProps {
+  products: Product[];
+  onAddToCart: (product: Product) => void;
+}
+
+const ProductPage: React.FC<ProductPageProps> = ({ products, onAddToCart }) => {
   return (
     <div>
-      <Header></Header>
-      <ProductList products={products} onAddToCart={handleAddToCart} />
-      
+      <ProductList products={products} onAddToCart={onAddToCart} />
     </div>
   );
 };

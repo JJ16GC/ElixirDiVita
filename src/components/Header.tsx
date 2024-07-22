@@ -1,21 +1,19 @@
 // src/components/Header.tsx
-import { useState, useEffect } from "react";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import CartModal from './CartModal';
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [showCart, setShowCart] = useState(false);
-  const [cartItems] = useState([
-    { id: 1, name: 'Chocolate A', price: 10000, quantity: 2 },
-    { id: 2, name: 'Chocolate B', price: 15000, quantity: 1 },
-  ]);
+interface HeaderProps {
+  onCartClick: () => void;
+  cartItems: { id: number, name: string, price: number, quantity: number }[];
+}
+
+const Header: React.FC<HeaderProps> = ({ onCartClick, cartItems }) => {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const toggleCart = () => setShowCart(!showCart);
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add("show");
     } else {
@@ -54,14 +52,13 @@ const Header = () => {
               </a>
             </li>
             <li className="nav-item">
-              <a href="#" className="nav-link" onClick={toggleCart}>
+              <a href="#" className="nav-link" onClick={onCartClick}>
                 Carrito
               </a>
             </li>
           </ul>
         </nav>
       </div>
-      <CartModal show={showCart} handleClose={toggleCart} cartItems={cartItems} />
     </header>
   );
 };

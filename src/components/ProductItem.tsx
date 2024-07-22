@@ -1,11 +1,10 @@
 // src/components/ProductItem.tsx
-import React, { useState } from 'react';
-import Modal from 'react-modal';
-import { Product } from '../types';
-import "../styles/ProductItem.css";
+import React, { useState } from "react";
+import Modal from "react-modal";
+import { Product } from "../types";
 
 // Configura el modal
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 interface ProductItemProps {
   product: Product;
@@ -20,37 +19,30 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
 
   return (
     <div className="product-item">
-      <img
-        src={product.imageUrl}
-        alt={product.name}
-        onClick={openModal}
-        style={{ cursor: 'pointer', width: '200px' }}
-      />
+      <img src={product.imageUrl} alt={product.name} onClick={openModal} />
       <h3>{product.name}</h3>
       <p>${product.price.toFixed(2)}</p>
-      <button className='btn btn-primary' onClick={() => onAddToCart(product)}>Agregar</button>
+      <button className="cart-button" onClick={() => onAddToCart(product)}>
+        Agregar
+      </button>
 
       {modalIsOpen && (
         <Modal
           isOpen={modalIsOpen}
           onRequestClose={closeModal}
           contentLabel="Product Image Modal"
-          style={{
-            content: {
-              top: '50%',
-              left: '50%',
-              right: 'auto',
-              bottom: 'auto',
-              transform: 'translate(-50%, -50%)',
-              maxWidth: '80%',
-              maxHeight: '80%',
-              overflow: 'auto',
-            },
-          }}
+          className="ReactModal__Content"
+          overlayClassName="ReactModal__Overlay"
         >
-          <button onClick={closeModal} style={{ marginBottom: '10px' }}>Close</button>
-          <img src={product.imageUrl} alt={product.name} style={{ width: '100%' }} />
-          <p>{product.description || 'No description available'}</p>
+          <button className="modal-close-button" onClick={closeModal}>
+            X
+          </button>
+          <img
+            src={product.imageUrl}
+            alt={product.name}
+            style={{ width: "60%" }}
+          />
+          <p>{product.description || "No description available"}</p>
         </Modal>
       )}
     </div>

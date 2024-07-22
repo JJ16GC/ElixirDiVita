@@ -1,11 +1,11 @@
 // src/components/CartModal.tsx
 import React from 'react';
-import '../styles/Cart.css'
+import '../styles/Cart.css';
 
 interface CartModalProps {
   show: boolean;
   handleClose: () => void;
-  cartItems: { id: number, name: string, price: number, quantity: number }[];
+  cartItems: { id: number; name: string; price: number; quantity: number; imageUrl: string }[];
 }
 
 const CartModal: React.FC<CartModalProps> = ({ show, handleClose, cartItems }) => {
@@ -17,8 +17,12 @@ const CartModal: React.FC<CartModalProps> = ({ show, handleClose, cartItems }) =
         <br></br>
         <ul>
           {cartItems.map(item => (
-            <li key={item.id}>
-              {item.name} - {item.price} x {item.quantity}
+            <li key={item.id} className="cart-item">
+              <img src={item.imageUrl} alt={item.name} className="cart-item-image" />
+              <div className="cart-item-details">
+                <p>{item.name}</p>
+                <p>${item.price.toFixed(2)} x {item.quantity}</p>
+              </div>
             </li>
           ))}
         </ul>
