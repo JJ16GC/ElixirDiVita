@@ -1,4 +1,3 @@
-// src/components/CartModal.tsx
 import React from 'react';
 import '../styles/Cart.css';
 
@@ -8,9 +7,10 @@ interface CartModalProps {
   cartItems: { id: string; name: string; price: number; quantity: number; imageUrl: string }[];
   onIncreaseQuantity: (id: string) => void;
   onDecreaseQuantity: (id: string) => void;
+  onRemoveProduct: (id: string) => void;
 }
 
-const CartModal: React.FC<CartModalProps> = ({ show, handleClose, cartItems, onIncreaseQuantity, onDecreaseQuantity }) => {
+const CartModal: React.FC<CartModalProps> = ({ show, handleClose, cartItems, onIncreaseQuantity, onDecreaseQuantity, onRemoveProduct }) => {
   const subtotal = cartItems.reduce((total, item) => total + item.price * item.quantity, 0);
 
   return (
@@ -31,7 +31,7 @@ const CartModal: React.FC<CartModalProps> = ({ show, handleClose, cartItems, onI
                 </div>
               </div>
               <p className="product-price">${item.price.toLocaleString()}</p>
-              <button className="delete-button" onClick={() => onDecreaseQuantity(item.id)}>
+              <button className="delete-button" onClick={() => onRemoveProduct(item.id)}>
                 &times;
               </button>
             </li>

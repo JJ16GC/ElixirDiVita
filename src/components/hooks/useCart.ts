@@ -1,21 +1,10 @@
 import { useState, useEffect } from "react";
 import { Product } from "../../types";
-import {
-  getProducts,
-  addProduct as addProductToFirestore,
-} from "../../../server/firestoreService";
+import { getProducts, addProduct as addProductToFirestore } from "../../../server/firestoreService";
 
 const useCart = () => {
   const [products, setProducts] = useState<Product[]>([]);
-  const [cartItems, setCartItems] = useState<
-    {
-      id: string;
-      name: string;
-      price: number;
-      quantity: number;
-      imageUrl: string;
-    }[]
-  >([]);
+  const [cartItems, setCartItems] = useState<Product[]>([]);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -27,7 +16,6 @@ const useCart = () => {
   }, []);
 
   const handleAddToCart = (product: Product) => {
-    console.log("handleAddToCart called with:", product);
     setCartItems((prevItems) => {
       const itemIndex = prevItems.findIndex((item) => item.id === product.id);
       if (itemIndex >= 0) {
@@ -43,22 +31,24 @@ const useCart = () => {
   const updateCart = (id: string, amount: number) => {
     setCartItems((prevItems) => {
       return prevItems.map((item) =>
-        item.id === id
-          ? { ...item, quantity: Math.max(item.quantity + amount, 1) }
-          : item
+        item.id === id ? { ...item, quantity: Math.max(item.quantity + amount, 1) } : item
       );
     });
   };
 
   const addProduct = async (product: Omit<Product, "id">) => {
-    await addProductToFirestore(product);
+    const newProduct = await addProductToFirestore(product);
     setProducts((prevProducts) => [
       ...prevProducts,
-      { ...product, id: `${Date.now()}` },
-    ]); // Suponiendo que el ID generado por Firestore es Date.now()
+      { ...product, id: newProduct.id },
+    ]);
   };
 
-  return { products, cartItems, handleAddToCart, updateCart, addProduct };
+  const removeProduct = (id: string) => {
+    setCartItems((prevCartItems) => prevCartItems.filter((item) => item.id !== id));
+  };
+
+  return { products, cartItems, handleAddToCart, updateCart, addProduct, removeProduct };
 };
 
 export { useCart };
