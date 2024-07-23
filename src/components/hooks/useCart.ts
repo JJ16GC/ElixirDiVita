@@ -1,17 +1,35 @@
-// src/components/hooks/useCart.tsx
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Product } from "../../types";
-import { initialProducts } from "../../data/initialProducts";
+import {
+  getProducts,
+  addProduct as addProductToFirestore,
+} from "../../../server/firestoreService";
 
 const useCart = () => {
-  const [products] = useState<Product[]>(initialProducts);([
-    // Lista de productos iniciales
-  ]);
-  const [cartItems, setCartItems] = useState<{ id: number; name: string; price: number; quantity: number; imageUrl: string }[]>([]);
+  const [products, setProducts] = useState<Product[]>([]);
+  const [cartItems, setCartItems] = useState<
+    {
+      id: string;
+      name: string;
+      price: number;
+      quantity: number;
+      imageUrl: string;
+    }[]
+  >([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      const fetchedProducts = await getProducts();
+      setProducts(fetchedProducts);
+    };
+
+    fetchProducts();
+  }, []);
 
   const handleAddToCart = (product: Product) => {
-    setCartItems(prevItems => {
-      const itemIndex = prevItems.findIndex(item => item.id === product.id);
+    console.log("handleAddToCart called with:", product);
+    setCartItems((prevItems) => {
+      const itemIndex = prevItems.findIndex((item) => item.id === product.id);
       if (itemIndex >= 0) {
         const newItems = [...prevItems];
         newItems[itemIndex].quantity += 1;
@@ -22,9 +40,9 @@ const useCart = () => {
     });
   };
 
-  const updateCart = (id: number, amount: number) => {
-    setCartItems(prevItems => {
-      return prevItems.map(item => 
+  const updateCart = (id: string, amount: number) => {
+    setCartItems((prevItems) => {
+      return prevItems.map((item) =>
         item.id === id
           ? { ...item, quantity: Math.max(item.quantity + amount, 1) }
           : item
@@ -32,7 +50,15 @@ const useCart = () => {
     });
   };
 
-  return { products, cartItems, handleAddToCart, updateCart };
+  const addProduct = async (product: Omit<Product, "id">) => {
+    await addProductToFirestore(product);
+    setProducts((prevProducts) => [
+      ...prevProducts,
+      { ...product, id: `${Date.now()}` },
+    ]); // Suponiendo que el ID generado por Firestore es Date.now()
+  };
+
+  return { products, cartItems, handleAddToCart, updateCart, addProduct };
 };
 
 export { useCart };

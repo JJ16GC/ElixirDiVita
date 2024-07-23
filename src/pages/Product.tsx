@@ -1,7 +1,7 @@
 // src/pages/ProductPage.tsx
 import React from "react";
-import { Product } from "../types";
-import ProductList from "../components/ProductList";
+import { Product } from "../../src/types";
+import ProductList from "../../src/components/ProductList";
 
 interface ProductPageProps {
   products: Product[];
@@ -17,3 +17,4 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, onAddToCart }) => {
 };
 
 export default ProductPage;
+

@@ -1,21 +1,30 @@
 // src/App.tsx
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useState } from "react";
+import { useState } from "react";
 import HomePage from "./pages/Home";
 import AboutPage from "./pages/About";
 import ProductPage from "./pages/Product";
 import Header from "./components/Header";
 import CartModal from "./components/CartModal";
 import { useCart } from "./components/hooks/useCart";
-import Modal from "react-modal";
+import Modal from "react-modal"
 
 Modal.setAppElement("#root");
 
 function App() {
-  const { products, handleAddToCart, cartItems } = useCart();
+  
+  const { products, handleAddToCart, cartItems, updateCart } = useCart();
   const [isCartModalOpen, setIsCartModalOpen] = useState(false);
 
   const toggleCartModal = () => setIsCartModalOpen(prevState => !prevState);
+
+  const handleIncreaseQuantity = (id: string) => {
+    updateCart(id, 1); // Incrementar cantidad
+  };
+
+  const handleDecreaseQuantity = (id: string) => {
+    updateCart(id, -1); // Decrementar cantidad
+  };
 
   return (
     <Router>
@@ -27,12 +36,13 @@ function App() {
           path="/productos"
           element={<ProductPage products={products} onAddToCart={handleAddToCart} />}
         />
-        <Route path="/carrito" element={<CartModal show={isCartModalOpen} handleClose={toggleCartModal} cartItems={cartItems} />} />
       </Routes>
       <CartModal
         show={isCartModalOpen}
         handleClose={toggleCartModal}
         cartItems={cartItems}
+        onIncreaseQuantity={handleIncreaseQuantity}
+        onDecreaseQuantity={handleDecreaseQuantity}
       />
     </Router>
   );

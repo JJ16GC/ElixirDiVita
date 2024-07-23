@@ -1,12 +1,24 @@
 /* src/components/CartModal.css */
+:root {
+  --main-font: "Source Sans Pro", sans-serif;
+  --secondary-font: "Poiret One", cursive;
+  --body-font: "Cabin", sans-serif;
+  --headings-font: "Herr Von Muellerhoff", cursive;
+  --main-font-color-dark: #7c7c7d;
+  --secondary-font-color: #d6bda9;
+  --body-font-color: #515151;
+  --white-color: #fff;
+  --dark-bg: #121212;
+}
+
 .cart-modal {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 300px;
+  width: 400px;
   height: 100%;
   background-color: white;
-  box-shadow: -2px 0 5px rgba(0,0,0,0.5);
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transition: right 0.3s ease;
   z-index: 1000;
 }
@@ -16,41 +28,41 @@
 }
 
 .cart-modal-content {
-  position: relative;
-  margin: 5% auto;
-  padding: 10px;
-  background: white;
+  background-color: #fff;
+  margin: 10% auto;
+  padding: 15px;
   width: 80%;
-  max-width: 600px;
-  border-radius: 8px;
+  max-width: 500px;
+  position: relative;
 }
 
-.cart-modal .close {
+.close {
   position: absolute;
   top: 10px;
   right: 10px;
-  font-size: 24px;
+  font-size: 28px;
   cursor: pointer;
 }
 
-.cart-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
+.cart-modal ul {
+  list-style-type: none;
+  padding: 0;
 }
 
-.cart-item-image {
+.cart-modal li {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-modal img {
   width: 50px;
   height: 50px;
   object-fit: cover;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
-.cart-item-details {
-  flex: 1;
-}
-
-/* src/styles/Cart.css */
 .quantity-controls {
   display: flex;
   align-items: center;
@@ -58,13 +70,68 @@
 }
 
 .quantity-controls button {
-  background-color: #f0f0f0;
+  background-color: var(--secondary-font-color);
   border: 1px solid #ccc;
   padding: 5px 10px;
   cursor: pointer;
 }
 
+.quantity-controls button:hover {
+  background-color: var(--main-font-color-dark);
+}
+
 .quantity-controls span {
   margin: 0 10px;
   font-size: 16px;
+}
+
+.product-info {
+  flex-grow: 1;
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-left: auto;
+}
+
+.product-title {
+  margin: 0;
+  font-size: 16px;
+}
+
+.delete-button {
+  margin-left: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: #ff0000;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  text-align: right;
+}
+
+.cart-summary p {
+  margin: 5px 0;
+}
+
+.cart-summary .total {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.checkout-button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-image: url("/images/madera.jpg");
+  color: #fff;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  margin-top: 20px;
 }

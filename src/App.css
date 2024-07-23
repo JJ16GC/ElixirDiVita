@@ -176,7 +176,6 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 100px;
-
 }
 
 .cart-button {
@@ -231,8 +230,6 @@ header {
   font-size: 16px;
 }
 
-
-
 .product-item {
   border: 1px solid #ddd;
   margin: 15px;
@@ -246,16 +243,16 @@ header {
 }
 
 .ReactModal__Overlay {
-    background-color: rgba(0, 0, 0, 0.75);
-  }
-  
-  .ReactModal__Content {
-    max-width: 50%;
-    max-height: 70%;
-    margin: auto;
-    padding: 20px;
-    background: white;
-  }
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.ReactModal__Content {
+  max-width: 50%;
+  max-height: 70%;
+  margin: auto;
+  padding: 20px;
+  background: white;
+}
 
 .product-item img {
   max-width: 100%;
@@ -274,7 +271,7 @@ header {
 }
 
 .product-item button {
-  background-image: url("D:\Programacion\Elixir\react-app\public\images\madera.jpg");
+  background-image: url("/images/madera.jpg");
   background-color: var(--secondary-font-color);
   color: white;
   border: none;
@@ -291,6 +288,74 @@ header {
 
 .product-item:hover {
   transform: translateY(-5px);
+}
+
+/* src/components/AddProductComponent.css */
+
+.form {
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  color: #333;
+  text-align: center;
+}
+
+.form label {
+  display: block;
+  margin: 10px 0 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form input[type="text"],
+.form input[type="number"],
+.form textarea {
+  width: calc(100% - 22px); /* Adjust width to accommodate padding */
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.form input[type="file"] {
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+.form textarea {
+  resize: none;
+  height: 100px;
+}
+
+.submit {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: var(--secondary-font-color);
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: var(--main-font-color-dark);
+}
+
+.submit:active {
+  background-color: var(--main-font-color-dark);
 }
 
 /* HERO SECTION*/

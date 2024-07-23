@@ -17,11 +17,19 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
   const openModal = () => setModalIsOpen(true);
   const closeModal = () => setModalIsOpen(false);
 
+  const formatPrice = (price: number) => {
+    return price.toLocaleString("es-CO", {
+      style: "currency",
+      currency: "COP",
+      minimumFractionDigits: 0,
+    });
+  };
+
   return (
     <div className="product-item">
       <img src={product.imageUrl} alt={product.name} onClick={openModal} />
       <h3>{product.name}</h3>
-      <p>${product.price.toFixed(2)}</p>
+      <p>{formatPrice(product.price)}</p>
       <button className="cart-button" onClick={() => onAddToCart(product)}>
         Agregar
       </button>

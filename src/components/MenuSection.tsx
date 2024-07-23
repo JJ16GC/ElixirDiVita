@@ -7,10 +7,10 @@ const MenuSection = () => {
             <Container>
                 <Row>
                     <Col md={6} className="image-group padding-right animate-left">
-                        <Image src="public\bombones.jpg" alt="image" fluid />
-                        <Image src="public\bombones.jpg" alt="image" fluid />
-                        <Image src="public\bombones.jpg" alt="image" fluid />
-                        <Image src="public\bombones.jpg" alt="image" fluid />
+                        <Image src="images/bombones.jpg" alt="image" fluid />
+                        <Image src="images/bombones.jpg" alt="image" fluid />
+                        <Image src="images/bombones.jpg" alt="image" fluid />
+                        <Image src="images/bombones.jpg" alt="image" fluid />
                     </Col>
                     <Col md={6} className="description animate-right">
                         <div className="global-headline">
