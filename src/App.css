@@ -37,6 +37,8 @@ section {
 img {
   width: 100%;
   max-width: 100%;
+  height: calc(100% - XXpx); 
+  object-fit: cover;
 }
 
 a {
@@ -230,11 +232,15 @@ header {
   font-size: 16px;
 }
 
+.product {
+  margin: 0 10px 0 10px;
+}
+
 .product-item {
   border: 1px solid #ddd;
   margin: 15px;
   padding: 20px;
-  width: 200px;
+  width: 250px;
   margin: 3%;
   text-align: center;
   border-radius: 10px;

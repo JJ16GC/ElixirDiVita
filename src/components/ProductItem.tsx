@@ -12,7 +12,10 @@ interface ProductItemProps {
 const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
   const [modalIsOpen, setModalIsOpen] = React.useState(false);
 
-  const openModal = () => setModalIsOpen(true);
+  const openModal = () => {
+    console.log("Abriendo modal para producto:", product);
+    setModalIsOpen(true);
+  };
   const closeModal = () => setModalIsOpen(false);
 
   const formatPrice = (price: number) => price.toLocaleString("es-CO", {
@@ -21,13 +24,19 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
     minimumFractionDigits: 0,
   });
 
+  const handleAddToCart = (product: Product) => {
+    console.log("Agregando al carrito:", product);
+    onAddToCart(product);
+  };
+
   return (
+    <div className="product">
     <div className="product-item">
       <img src={product.imageUrl} alt={product.name} onClick={openModal} />
       <h3>{product.name}</h3>
       <p>{formatPrice(product.price)}</p>
-      <button className="cart-button" onClick={() => onAddToCart(product)}>Agregar</button>
-
+      <button className="cart-button" onClick={() => handleAddToCart(product)}>Agregar</button>
+      </div>
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
@@ -38,8 +47,8 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
           <h2>{product.name}</h2>
           <img src={product.imageUrl} alt={product.name} />
           <p>{formatPrice(product.price)}</p>
-          <button onClick={() => onAddToCart(product)}>Agregar al Carrito</button>
-          <button onClick={closeModal}>Cerrar</button>
+          <button className="btn" onClick={() => handleAddToCart(product)}>Agregar al Carrito</button>
+          <button className="btn" onClick={closeModal}>Cerrar</button>
         </div>
       </Modal>
     </div>

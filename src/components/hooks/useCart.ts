@@ -16,17 +16,28 @@ const useCart = () => {
   }, []);
 
   const handleAddToCart = (product: Product) => {
+    console.log("Agregando producto al carrito desde el hook:", product);
+  
     setCartItems((prevItems) => {
-      const itemIndex = prevItems.findIndex((item) => item.id === product.id);
-      if (itemIndex >= 0) {
-        const newItems = [...prevItems];
-        newItems[itemIndex].quantity += 1;
-        return newItems;
-      } else {
+      // Verificar si el producto ya está en el carrito
+      const existingItemIndex = prevItems.findIndex(item => item.id === product.id);
+  
+      // Si el producto ya está en el carrito, incrementar la cantidad
+      if (existingItemIndex >= 0) {
+        const updatedItems = prevItems.map((item, index) =>
+          index === existingItemIndex
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+        return updatedItems;
+      } 
+      // Si el producto no está en el carrito, añadirlo con cantidad 1
+      else {
         return [...prevItems, { ...product, quantity: 1 }];
       }
     });
   };
+  
 
   const updateCart = (id: string, amount: number) => {
     setCartItems((prevItems) => {

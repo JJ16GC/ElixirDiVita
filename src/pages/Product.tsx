@@ -13,6 +13,7 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, onAddToCart }) => {
   const [showCart, setShowCart] = useState(false);
 
   const handleAddToCart = (product: Product) => {
+    console.log("Agregando al carrito:", product);
     const existingItem = cartItems.find(item => item.id === product.id);
     if (existingItem) {
       setCartItems(prevCartItems => 
