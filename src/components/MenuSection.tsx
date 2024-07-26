@@ -20,7 +20,7 @@ const MenuSection = () => {
                         </div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci voluptatum dolor earum
                             accusamus suscipit. Officia atque vitae excepturi deserunt nihil?</p>
-                        <a href="index.html" className="btn btn-secondary">Ver Menu Completo</a>
+                        <a href="/productos" className="btn btn-secondary">Ver Menu Completo</a>
                     </Col>
                 </Row>
             </Container>

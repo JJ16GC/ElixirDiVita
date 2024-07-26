@@ -1,6 +1,8 @@
 import React from "react";
 import Modal from "react-modal";
 import { Product } from "../types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 Modal.setAppElement("#root");
 
@@ -31,11 +33,11 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
 
   return (
     <div className="product">
-    <div className="product-item">
-      <img src={product.imageUrl} alt={product.name} onClick={openModal} />
-      <h3>{product.name}</h3>
-      <p>{formatPrice(product.price)}</p>
-      <button className="cart-button" onClick={() => handleAddToCart(product)}>Agregar</button>
+      <div className="product-item">
+        <img src={product.imageUrl} alt={product.name} onClick={openModal} />
+        <h3>{product.name}</h3>
+        <p>{formatPrice(product.price)}</p>
+        <button className="cart-button" onClick={() => handleAddToCart(product)}>Agregar</button>
       </div>
       <Modal
         isOpen={modalIsOpen}
@@ -44,11 +46,16 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
         overlayClassName="modal-overlay"
       >
         <div className="modal-content">
-          <h2>{product.name}</h2>
-          <img src={product.imageUrl} alt={product.name} />
-          <p>{formatPrice(product.price)}</p>
-          <button className="btn" onClick={() => handleAddToCart(product)}>Agregar al Carrito</button>
-          <button className="btn" onClick={closeModal}>Cerrar</button>
+          <div className="modal-left">
+            <img src={product.imageUrl} alt={product.name} />
+          </div>
+          <div className="modal-right">
+            <button className="close-button-modal" onClick={closeModal}><FontAwesomeIcon icon={faXmark} /></button>
+            <h2 className="">{product.name}</h2>
+            <p>{product.description}</p>
+            <p>{formatPrice(product.price)}</p>
+            <button className="btn-modal" onClick={() => handleAddToCart(product)}>Agregar al Carrito</button>
+          </div>
         </div>
       </Modal>
     </div>

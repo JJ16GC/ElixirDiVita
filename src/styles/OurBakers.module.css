@@ -1,0 +1,76 @@
+:root {
+  --main-font: "Source Sans Pro", sans-serif;
+  --main-font-titulos: 'Manstein', sans-serif;
+  --secondary-font: "Poiret One", cursive;
+  --body-font: "Cabin", sans-serif;
+  --headings-font: "Herr Von Muellerhoff", cursive;
+  --main-font-color-dark: #a38972;
+  --main-font-color: #fffcf4;
+  --secondary-font-color: #a38972;
+  --third-font-color: #4e3b33;
+  --body-font-color: #515151;
+  --white-color: #fff;
+  --dark-bg: #121212;
+}
+
+.bakersContainer {
+    text-align: center;
+    margin-top: 5%;
+    padding: 20px;
+  }
+  
+  .title {
+    font-family: var(--main-font-titulos);
+    color: var(--secondary-font-color);
+    font-size: 48px;
+  }
+  
+  .subtitle {
+    font-size: 36px;
+    margin-top: -10px;
+    font-family: var(--secondary-font);
+  }
+  
+  .bakersGrid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .bakerCard {
+    text-align: center;
+  }
+  
+  .bakerImage {
+    width: 180px;
+    height: 300px;
+    border-radius: 5%;
+  }
+  
+  .bakerName {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 10px 0 10px 0;
+  }
+  
+  .socialLinks {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .socialIcon {
+    color: var(--third-font-color);
+    font-size: 20px;
+    text-decoration: none;
+  }
+  
+  .socialIcon:hover {
+    color: var(--third-font-color);
+  }
+  
+  .description {
+    margin-top: 5%;
+    max-width: 600px;
+  }

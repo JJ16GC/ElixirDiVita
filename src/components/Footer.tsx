@@ -1,6 +1,7 @@
 import {
   faFacebook,
   faInstagram,
+  faTiktok,
   faWhatsapp,
 } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -46,23 +47,30 @@ const Footer = () => {
                   </i>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="https://www.instagram.com/elisirdivitachocolateria/">
                     <i className="fab fa-twitter">
                       <FontAwesomeIcon icon={faInstagram} />
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="https://wa.me/+573173807044">
                     <i className="fab fa-instagram">
                       <FontAwesomeIcon icon={faWhatsapp} />
                     </i>
                   </a>
                 </li>
                 <li>
-                  <a href="#">
+                  <a href="elisirdivitachocolateria@gmail.com">
                     <i className="fab fa-pinterest">
-                      <FontAwesomeIcon icon={faEnvelope} />
+                    <FontAwesomeIcon icon={faEnvelope} />
+                    </i>
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@elisirdivitachocolateria">
+                    <i className="fab fa-pinterest">
+                    <FontAwesomeIcon icon={faTiktok} />
                     </i>
                   </a>
                 </li>

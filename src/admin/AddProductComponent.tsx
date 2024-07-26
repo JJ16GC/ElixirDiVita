@@ -1,9 +1,10 @@
 // AddProductComponent.tsx
 import React, { useState } from "react";
-import { useCart } from "./hooks/useCart";
+import { useCart } from "../components/hooks/useCart";
 import { Product } from "../types";
 import { uploadImage } from "../../server/firestoreService";
-import Modal from "./Modal";
+import Modal from "../components/Modal";
+import { useNavigate } from "react-router-dom";
 
 const AddProductComponent: React.FC = () => {
   const { addProduct } = useCart();
@@ -13,6 +14,8 @@ const AddProductComponent: React.FC = () => {
   const [quantity, setQuantity] = useState(0);
   const [imageFile, setImageFile] = useState<File | null>(null);
   const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+
 
   const handleAddProduct = async () => {
     if (imageFile) {
@@ -31,6 +34,8 @@ const AddProductComponent: React.FC = () => {
         setPrice(0);
         setQuantity(0);
         setImageFile(null);
+        navigate("/productos");
+        window.location.reload();
       } catch (error) {
         console.error('Error uploading image or adding product:', error);
       }

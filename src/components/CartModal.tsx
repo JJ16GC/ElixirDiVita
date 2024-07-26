@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/Cart.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 interface CartModalProps {
   show: boolean;
@@ -25,9 +27,9 @@ const CartModal: React.FC<CartModalProps> = ({ show, handleClose, cartItems, onI
               <div className="product-info">
                 <p className="product-title">{item.name}</p>
                 <div className="quantity-controls">
-                  <button onClick={() => onDecreaseQuantity(item.id)}>-</button>
+                  <button onClick={() => onDecreaseQuantity(item.id)}><FontAwesomeIcon icon={faMinus} /></button>
                   <span>{item.quantity}</span>
-                  <button onClick={() => onIncreaseQuantity(item.id)}>+</button>
+                  <button onClick={() => onIncreaseQuantity(item.id)}><FontAwesomeIcon icon={faPlus} /></button>
                 </div>
               </div>
               <p className="product-price">${item.price.toLocaleString()}</p>

@@ -6,23 +6,35 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Manstein';
+  src: url('./assets/Manstein.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --main-font: "Source Sans Pro", sans-serif;
+  --main-font-titulos: 'Manstein', sans-serif;
   --secondary-font: "Poiret One", cursive;
   --body-font: "Cabin", sans-serif;
   --headings-font: "Herr Von Muellerhoff", cursive;
-  --main-font-color-dark: #7c7c7d;
-  --secondary-font-color: #d6bda9;
+  --main-font-color-dark: #a38972;
+  --main-font-color: #fffcf4;
+  --secondary-font-color: #a38972;
+  --third-font-color: #4e3b33;
   --body-font-color: #515151;
   --white-color: #fff;
   --dark-bg: #121212;
 }
+
 
 html {
   font-family: var(--body-font);
   font-size: 10px;
   color: var(--body-font-color);
   scroll-behavior: smooth;
+  background-color: #f2eae4;
 }
 
 body {
@@ -37,16 +49,18 @@ section {
 img {
   width: 100%;
   max-width: 100%;
-  height: calc(100% - XXpx); 
+  height: calc(100% - XXpx);
   object-fit: cover;
 }
 
 a {
   text-decoration: none;
+  
 }
 
 p {
   font-size: 1.6rem;
+  margin: 2%;
 }
 
 ul {
@@ -68,7 +82,7 @@ header {
   top: 0;
   left: 0;
   z-index: 1;
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), transparent);
+  background-image: linear-gradient(to bottom, rgba(68, 63, 63, 0.5), transparent);
 }
 
 .navbar {
@@ -80,10 +94,12 @@ header {
 }
 
 .logo {
-  font-size: 2.5rem;
-  color: var(--white-color);
-  letter-spacing: 0.1rem;
+  font-size: 3rem;
+  letter-spacing: 0.4rem;
   transition: color 0.4s;
+  font-family: var(--main-font-titulos);
+  margin-top: 1%;
+  color: var(--third-font-color);
 }
 
 .logo:hover {
@@ -112,7 +128,7 @@ header {
   left: 0;
   width: 80%;
   min-height: 100vh;
-  background-color: var(--main-font-color-dark);
+  background-color: var(--main-font-color);
   padding: 4.4rem;
   display: flex;
   flex-direction: column;
@@ -120,6 +136,7 @@ header {
   z-index: 1250;
   transform: translateX(-100%);
   transition: transform 0.5s;
+  
 }
 
 .navbar::before {
@@ -159,7 +176,7 @@ header {
 
 .nav-link {
   display: block;
-  color: var(--white-color);
+  color: var(--third-font-color);
   font-size: 1.4rem;
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -178,6 +195,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 100px;
+  
 }
 
 .cart-button {
@@ -189,6 +207,71 @@ header {
   cursor: pointer;
   font-size: 16px;
   margin-left: 15px;
+}
+
+.modal-content {
+  display: flex;
+  max-width: 800px;
+  margin: auto;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.modal-left {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f9f9;
+}
+
+.modal-left img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+.modal-right {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.close-button-modal {
+  align-self: flex-end;
+  background: none;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.modal-right h2 {
+  margin-top: 0;
+  font-size: large;
+}
+
+.modal-right p {
+  margin: 10px 0;
+}
+
+.btn-modal {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: var(--secondary-font-color);
 }
 
 .cart-button:hover {
@@ -236,16 +319,22 @@ header {
   margin: 0 10px 0 10px;
 }
 
+.container-product {
+  padding-left: 7%;
+  padding-right: 7%;
+}
+
 .product-item {
   border: 1px solid #ddd;
   margin: 15px;
   padding: 20px;
   width: 250px;
-  margin: 3%;
+  margin: 5%;
   text-align: center;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease;
+  background-color: #ece1cf;
 }
 
 .ReactModal__Overlay {
@@ -268,6 +357,7 @@ header {
 
 .product-item h3 {
   font-size: 1.5rem;
+  margin: 2%;
   color: #333;
 }
 
@@ -380,7 +470,6 @@ header {
   font-size: 3.5rem;
   font-weight: 900;
   color: var(--white-color);
-  text-transform: uppercase;
   letter-spacing: 0.5rem;
   margin-right: -0.5rem;
   opacity: 0;
@@ -390,12 +479,12 @@ header {
 }
 
 h1.headline {
-  font-family: var(--secondary-font);
+  font-family: var(--headings-font);
+  color: var(--third-font-color);
   margin-bottom: 4rem;
   font-weight: 400;
-  font-size: 5.5rem;
+  font-size: 7rem;
   opacity: 0;
-  animation-name: scaleBigger;
   animation-duration: 0.5s;
   animation-fill-mode: both;
 }
@@ -403,7 +492,7 @@ h1.headline {
 .sub-headline {
   font-size: 8.5rem;
   font-family: var(--headings-font);
-  color: var(--secondary-font-color);
+  color: var(--third-font-color);
   font-weight: 100;
   line-height: 0.4;
   letter-spacing: 2px;
@@ -462,7 +551,7 @@ h1.headline {
 }
 
 .headline-dark {
-  color: var(--main-font-color-dark);
+  color: #a38972;
   letter-spacing: 0.7rem;
   margin-right: -0.7rem;
 }
@@ -486,7 +575,7 @@ h1.headline {
 }
 
 .btn-secondary {
-  color: var(--secondary-font-color);
+  color: #6d5448;
   position: relative;
   transition: color 0.5s;
 }
@@ -498,7 +587,7 @@ h1.headline {
   bottom: -3px;
   width: 100%;
   height: 2px;
-  background-color: var(--secondary-font-color);
+  background-color: #6d5448;
   transition: background-color 0.5s;
 }
 
@@ -553,7 +642,7 @@ h1.headline {
 /* FOOTER */
 
 footer {
-  background-color: var(--dark-bg);
+  background-color: var(--third-font-color);
   color: var(--white-color);
   padding: 7rem 0 5rem;
   position: relative;
@@ -561,7 +650,7 @@ footer {
 }
 
 .back-to-top {
-  background-color: var(--dark-bg);
+  background-color: var(--third-font-color);
   border-radius: 50%;
   position: absolute;
   top: -3rem;
@@ -775,6 +864,7 @@ footer .asterisk {
   display: none;
 }
 
+
 /*                         MEDIA QUERIES                  */
 
 @media screen and (min-width: 900px) {
@@ -788,6 +878,7 @@ footer .asterisk {
 
   .navbar {
     justify-content: space-between;
+    font-weight: bold;
   }
 
   .nav-list {
@@ -835,6 +926,7 @@ footer .asterisk {
 
   .headline {
     font-size: 4.7rem;
+    
   }
 
   .story-img {

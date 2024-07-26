@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import CartModal from "./components/CartModal";
 import { useCart } from "./components/hooks/useCart";
 import Modal from "react-modal";
+import CRUD_Products from "./pages/FormProducts";
 
 Modal.setAppElement("#root");
 
@@ -30,7 +31,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/productos" element={<ProductPage products={products} onAddToCart={handleAddToCart} />} />
+        <Route path="/productos" element={<ProductPage products={products} onAddToCart={handleAddToCart}  />} />
+        <Route path="/registro" element={<CRUD_Products />}></Route>
       </Routes>
       <CartModal
         show={isCartModalOpen}

@@ -5,7 +5,7 @@ const HeroSection = () => {
     <section className="hero" id="hero">
       <div className="container">
         <h1 className="headline">La perfección en un bombon</h1>
-        <a href="index.html" className="btn btn-primary">Ordena Ahora</a>
+        <a href="/productos" className="btn btn-primary">Ordena Ahora</a>
       </div>
     </section>
   );
