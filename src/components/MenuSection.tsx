@@ -1,4 +1,4 @@
-// MenuSection.js
+import '../styles/Menu.css'
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
 const MenuSection = () => {

@@ -1,0 +1,115 @@
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    /* background-image: linear-gradient(to bottom, rgba(68, 63, 63, 0.5), transparent); */
+    background-color: #F2EAE4;
+  }
+  
+  .navbar {
+    height: 7rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+  }
+  
+  .logo {
+    font-size: 3rem;
+    letter-spacing: 0.4rem;
+    transition: color 0.4s;
+    font-family: var(--main-font-titulos);
+    margin-top: 1%;
+    color: var(--third-font-color);
+  }
+  
+  .logo:hover {
+    color: var(--secondary-font-color);
+  }
+  
+  .menu-toggle {
+    color: var(--white-color);
+    font-size: 2.2rem;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 2.5rem;
+    cursor: pointer;
+    z-index: 1500;
+  }
+  
+  .fa-times {
+    display: none;
+  }
+  
+  .nav-list {
+    list-style: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    min-height: 100vh;
+    background-color: var(--main-font-color);
+    padding: 4.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    z-index: 1250;
+    transform: translateX(-100%);
+    transition: transform 0.5s;
+    
+  }
+  
+  
+  .navbar::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    opacity: 0;
+    transform: scale(0);
+    transition: opacity 0.5s;
+  }
+  
+  .show .fa-times {
+    display: block;
+  }
+  
+  .show .fa-bars {
+    display: none;
+  }
+  
+  .show .nav-list {
+    transform: translateX(0);
+  }
+  
+  .show .nav::before {
+    opacity: 1;
+    transform: scale(1);
+  }
+  
+  .nav-item {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+  }
+  
+  .nav-link {
+    display: block;
+    color: var(--third-font-color);
+    font-size: 1.4rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+    transition: color 0.5s;
+  }
+  
+  .nav-link:hover {
+    color: var(--secondary-font-color);
+  }
+  
+  

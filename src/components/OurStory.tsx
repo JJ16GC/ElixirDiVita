@@ -1,4 +1,4 @@
-// OurStory.js
+import '../styles/OurStory.css'
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
 

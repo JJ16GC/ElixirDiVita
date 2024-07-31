@@ -1,0 +1,11 @@
+.always-fresh {
+    background: url("/images/image.jpg") center no-repeat;
+    background-size: cover;
+  }
+  
+  .shared {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

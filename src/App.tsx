@@ -8,6 +8,7 @@ import CartModal from "./components/CartModal";
 import { useCart } from "./components/hooks/useCart";
 import Modal from "react-modal";
 import CRUD_Products from "./pages/FormProducts";
+import '../src/styles/global.css'
 
 Modal.setAppElement("#root");
 

@@ -15,12 +15,13 @@
 
 :root {
   --main-font: "Source Sans Pro", sans-serif;
+  --main-alegreya: "Alegreya", serif;
   --main-font-titulos: 'Manstein', sans-serif;
   --secondary-font: "Poiret One", cursive;
   --body-font: "Cabin", sans-serif;
   --headings-font: "Herr Von Muellerhoff", cursive;
   --main-font-color-dark: #a38972;
-  --main-font-color: #fffcf4;
+  --main-font-color: #F2EAE4;
   --secondary-font-color: #a38972;
   --third-font-color: #4e3b33;
   --body-font-color: #515151;
@@ -34,7 +35,7 @@ html {
   font-size: 10px;
   color: var(--body-font-color);
   scroll-behavior: smooth;
-  background-color: #f2eae4;
+  background-color: #F2EAE4;
 }
 
 body {
@@ -78,11 +79,12 @@ ul {
 
 header {
   width: 100%;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  background-image: linear-gradient(to bottom, rgba(68, 63, 63, 0.5), transparent);
+  /* background-image: linear-gradient(to bottom, rgba(68, 63, 63, 0.5), transparent); */
+  background-color: #F2EAE4;
 }
 
 .navbar {
@@ -138,6 +140,7 @@ header {
   transition: transform 0.5s;
   
 }
+
 
 .navbar::before {
   content: "";
@@ -213,7 +216,7 @@ header {
   display: flex;
   max-width: 800px;
   margin: auto;
-  background-color: white;
+  background-color: #F2EAE4;
   border-radius: 10px;
   overflow: hidden;
 }
@@ -223,7 +226,7 @@ header {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #f9f9f9;
+  background-color: #F2EAE4;
 }
 
 .modal-left img {
@@ -466,11 +469,11 @@ header {
 }
 
 .headline {
-  font-family: var(--main-font);
+  font-family: var(--main-alegreya);
   font-size: 3.5rem;
   font-weight: 900;
   color: var(--white-color);
-  letter-spacing: 0.5rem;
+  letter-spacing: 0.2rem;
   margin-right: -0.5rem;
   opacity: 0;
   animation-name: scaleBigger;
@@ -479,7 +482,7 @@ header {
 }
 
 h1.headline {
-  font-family: var(--headings-font);
+  font-family: var(--main-alegreya);
   color: var(--third-font-color);
   margin-bottom: 4rem;
   font-weight: 400;
@@ -518,7 +521,7 @@ h1.headline {
 .btn-primary {
   background-color: var(--secondary-font-color);
   background-image: url("/images/madera.jpg");
-  color: var(--white-color);
+  color: var(--main-font-color);
   padding: 2rem 3rem;
   transition: all 0.4s;
 }
@@ -906,6 +909,8 @@ footer .asterisk {
     font-size: 1.3rem;
   }
 
+
+
   .active {
     position: relative;
   }
@@ -915,7 +920,7 @@ footer .asterisk {
     position: absolute;
     width: 100%;
     height: 2px;
-    background-color: var(--white-color);
+    background-color: var(--third-font-color);
     left: 0;
     bottom: -3px;
   }

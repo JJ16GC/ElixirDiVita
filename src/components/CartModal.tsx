@@ -1,6 +1,6 @@
 import React from 'react';
-import '../styles/Cart.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../styles/Cart.css'; // Removed unnecessary comment
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'; // Fixed import statement for FontAwesomeIcon
 import { faMinus, faPlus } from '@fortawesome/free-solid-svg-icons';
 
 interface CartModalProps {

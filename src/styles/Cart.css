@@ -5,6 +5,7 @@
   --body-font: "Cabin", sans-serif;
   --headings-font: "Herr Von Muellerhoff", cursive;
   --main-font-color-dark: #7c7c7d;
+  --main-font-color: #f2eae4;
   --secondary-font-color: #d6bda9;
   --body-font-color: #515151;
   --white-color: #fff;
@@ -17,7 +18,7 @@
   right: -100%;
   width: 400px;
   height: 100%;
-  background-color: white;
+  background-color: var(--main-font-color);
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
   transition: right 0.3s ease;
   z-index: 1000;
@@ -28,10 +29,10 @@
 }
 
 .cart-modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 15px;
-  width: 80%;
+  background-color: var(--main-font-color);
+  margin: 10% auto 0 auto;
+  padding: 10px;
+  width: 90%;
   max-width: 500px;
   position: relative;
 }
@@ -52,6 +53,7 @@
 .cart-modal li {
   display: flex;
   align-items: center;
+  margin-top: 3%;
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
 }

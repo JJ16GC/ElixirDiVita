@@ -1,25 +1,27 @@
-// src/components/Header.tsx
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import '../assets/Manstein.ttf'
+import {
+  faBagShopping,
+  faBars,
+  faTimes,
+} from "@fortawesome/free-solid-svg-icons";
+import { useLocation } from "react-router-dom";
+import '../styles/header.css'
+
 
 interface HeaderProps {
   onCartClick: () => void;
-  cartItems: { id: string; name: string; price: number; quantity: number; imageUrl: string }[];
 }
 
-const Header: React.FC<HeaderProps> = ({ onCartClick}) => {
+const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  const location = useLocation();
+
   useEffect(() => {
-    if (isMenuOpen) {
-      document.body.classList.add("show");
-    } else {
-      document.body.classList.remove("show");
-    }
+    document.body.classList.toggle("show", isMenuOpen);
 
     return () => {
       document.body.classList.remove("show");
@@ -38,21 +40,43 @@ const Header: React.FC<HeaderProps> = ({ onCartClick}) => {
           </a>
           <ul className={`nav-list ${isMenuOpen ? "active" : ""}`}>
             <li className="nav-item">
-              <a href="/" className="nav-link active">Home</a>
+              <a
+                href="/"
+                className={`nav-link ${
+                  location.pathname === "/" ? "active" : ""
+                }`}
+              >
+                Home
+              </a>
             </li>
             <li className="nav-item">
-              <a href="/about" className="nav-link">Acerca de nosotros</a>
+              <a
+                href="/about"
+                className={`nav-link ${
+                  location.pathname === "/about" ? "active" : ""
+                }`}
+              >
+                Acerca de nosotros
+              </a>
             </li>
             <li className="nav-item">
-              <a href="/productos" className="nav-link">Productos</a>
+              <a
+                href="/productos"
+                className={`nav-link ${
+                  location.pathname === "/productos" ? "active" : ""
+                }`}
+              >
+                Productos
+              </a>
             </li>
-            <li className="nav-item">
-              <a href="#" className="nav-link" onClick={onCartClick}>Carrito</a>
+            <li className="icon nav-item">
+              <a href="#" className="nav-link" onClick={onCartClick}>
+              <FontAwesomeIcon icon={faBagShopping} style={{ fontSize: "2rem" }} />
+              </a>
             </li>
           </ul>
         </nav>
       </div>
-      {/* En Header, `isCartModalOpen` no se usa, así que puedes eliminar esta línea si solo se usa en App */}
     </header>
   );
 };
