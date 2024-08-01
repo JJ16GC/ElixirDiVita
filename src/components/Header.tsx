@@ -1,19 +1,17 @@
+// src/components/Header.tsx
 import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBagShopping,
-  faBars,
-  faTimes,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBagShopping, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
-import '../styles/header.css'
-
+import '../styles/header.css';
+import { Product } from '../types'; // Ajusta la ruta según corresponda
 
 interface HeaderProps {
   onCartClick: () => void;
+  cartItems: Product[]; // Añade esta línea
 }
 
-const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
+const Header: React.FC<HeaderProps> = ({ onCartClick, cartItems }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
@@ -42,9 +40,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
             <li className="nav-item">
               <a
                 href="/"
-                className={`nav-link ${
-                  location.pathname === "/" ? "active" : ""
-                }`}
+                className={`nav-link ${location.pathname === "/" ? "active" : ""}`}
               >
                 Home
               </a>
@@ -52,9 +48,7 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
             <li className="nav-item">
               <a
                 href="/about"
-                className={`nav-link ${
-                  location.pathname === "/about" ? "active" : ""
-                }`}
+                className={`nav-link ${location.pathname === "/about" ? "active" : ""}`}
               >
                 Acerca de nosotros
               </a>
@@ -62,16 +56,15 @@ const Header: React.FC<HeaderProps> = ({ onCartClick }) => {
             <li className="nav-item">
               <a
                 href="/productos"
-                className={`nav-link ${
-                  location.pathname === "/productos" ? "active" : ""
-                }`}
+                className={`nav-link ${location.pathname === "/productos" ? "active" : ""}`}
               >
                 Productos
               </a>
             </li>
             <li className="icon nav-item">
               <a href="#" className="nav-link" onClick={onCartClick}>
-              <FontAwesomeIcon icon={faBagShopping} style={{ fontSize: "2rem" }} />
+                <FontAwesomeIcon icon={faBagShopping} style={{ fontSize: "2rem" }} />
+                {cartItems.length > 0 && <span className="cart-count">{cartItems.length}</span>}
               </a>
             </li>
           </ul>
