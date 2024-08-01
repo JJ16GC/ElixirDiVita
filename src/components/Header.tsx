@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBagShopping, faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useLocation } from "react-router-dom";
-import '../styles/header.css';
 import { Product } from '../types'; // Ajusta la ruta según corresponda
 
 interface HeaderProps {

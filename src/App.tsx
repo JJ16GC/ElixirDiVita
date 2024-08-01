@@ -8,7 +8,7 @@ import CartModal from "./components/CartModal";
 import { useCart } from "./components/hooks/useCart";
 import Modal from "react-modal";
 import CRUD_Products from "./pages/FormProducts";
-import '../src/styles/global.css'
+import '../src/App.css';
 
 Modal.setAppElement("#root");
 
@@ -32,8 +32,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/productos" element={<ProductPage products={products} onAddToCart={handleAddToCart}  />} />
-        <Route path="/registro" element={<CRUD_Products />}></Route>
+        <Route path="/productos" element={<ProductPage products={products} onAddToCart={handleAddToCart} />} />
+        <Route path="/registro" element={<CRUD_Products />} />
       </Routes>
       <CartModal
         show={isCartModalOpen}
@@ -41,7 +41,7 @@ function App() {
         cartItems={cartItems}
         onIncreaseQuantity={handleIncreaseQuantity}
         onDecreaseQuantity={handleDecreaseQuantity}
-        onRemoveProduct={removeProduct} // Añadir esta línea
+        onRemoveProduct={removeProduct}
       />
     </Router>
   );

@@ -1,6 +1,5 @@
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
-
 const OurStory = () => {
     return (
         <section className="our-story">

@@ -1,5 +1,3 @@
-import '../styles/OurStory.css'
-
 const StorySection = () => {
   return (
     <section className="our-story">

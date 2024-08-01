@@ -201,6 +201,10 @@ header {
   
 }
 
+.cart-count{
+  margin: 5px;
+}
+
 .cart-button {
   background-color: var(--secondary-font-color);
   color: white;

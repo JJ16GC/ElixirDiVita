@@ -1,6 +1,5 @@
 // src/components/Modal.tsx
 import React from 'react';
-import '../styles/modal.css'
 
 interface ModalProps {
   message: string;
