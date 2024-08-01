@@ -1,3 +1,75 @@
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: url("/images/IMG_20240627_001345.jpg") center no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+  }
+  
+  .headline {
+    font-family: var(--main-alegreya);
+    font-size: 3.5rem;
+    font-weight: 900;
+    color: var(--white-color);
+    letter-spacing: 0.2rem;
+    margin-right: -0.5rem;
+    opacity: 0;
+    animation-name: scaleBigger;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+  }
+  
+  h1.headline {
+    font-family: var(--main-alegreya);
+    color: var(--third-font-color);
+    margin-bottom: 4rem;
+    font-weight: 400;
+    font-size: 7rem;
+    opacity: 0;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+  }
+  
+  .sub-headline {
+    font-size: 8.5rem;
+    font-family: var(--headings-font);
+    color: var(--third-font-color);
+    font-weight: 100;
+    line-height: 0.4;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation-name: fadeUp;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-delay: 0.5s;
+  }
+  
+  .sub-headline::first-letter {
+    text-transform: uppercase;
+    font-size: 10.3rem;
+  }
+  
+  .btn {
+    display: inline-block;
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  
+  .btn-primary {
+    background-color: var(--secondary-font-color);
+    background-image: url("/images/madera.jpg");
+    color: var(--main-font-color);
+    padding: 2rem 3rem;
+    transition: all 0.4s;
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--white-color);
+    color: var(--secondary-font-color);
+  }
+
 .global-headline {
     margin-top: 3.9rem;
     text-align: center;

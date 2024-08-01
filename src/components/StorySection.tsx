@@ -1,4 +1,4 @@
-
+import '../styles/OurStory.css'
 
 const StorySection = () => {
   return (
