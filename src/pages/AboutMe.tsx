@@ -1,12 +1,12 @@
 // src/pages/AboutPage.tsx
 import React from "react";
-import Our from "../components/Our";
+import OurBakers from "../components/OurBakers";
 
 const AboutMePage: React.FC = () => {
   return (
     <div className="container">
       <div className="section">
-        <Our></Our>
+        <OurBakers></OurBakers>
       </div>
     </div>
   );

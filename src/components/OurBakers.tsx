@@ -9,7 +9,7 @@ import {
 const bakers = [
   {
     name: "Laura Michelle Sierra Quiroga",
-    image: "images\\perfil.png",
+    image: "images\\perfil.webp",
     social: {
       facebook: "#",
       twitter: "https://wa.me/+573173807044",
@@ -21,7 +21,7 @@ const bakers = [
 const OurBakers = () => (
   <div className={styles.bakersContainer}>
     <h2 className={styles.title}>Descubre</h2>
-    <h3 className={styles.subtitle}>Nuestra Historia</h3>
+    <h3 className={styles.subtitle}>Sobre Mi</h3>
     <div className={styles.bakersGrid}>
       {bakers.map((baker) => (
         <div className={styles.bakerCard} key={baker.name}>
@@ -42,7 +42,7 @@ const OurBakers = () => (
               <FontAwesomeIcon icon={faInstagram} />
             </a>
           </div>
-          <p className={styles.description}>Desde niña siempre me fascinó la magia de la cocina, especialmente la repostería. Esta pasión me llevo a seguir mis sueños y realizar un diplomado de pastelería francesa, además de ello me inscribí en una escuela para realizar un técnico y especializarme un poco mas en lo que me gusta, estando así a poco de graduarme. A lo largo de mis estudios, exploré diversas técnicas y estilos, pero fue el arte de trabajar con chocolate lo que realmente capturó mi corazón.</p>
+          <p className={styles.description}>Soy Laura Michelle Sierra Quiroga, una apasionada pastelera con estudios en LCI Bogotá, aunque mi viaje por la repostería comenzó hace varios años, recientemente descubrí mi pasión por la chocolatería.</p>
         </div>
       ))}
     </div>

@@ -15,7 +15,6 @@
 
 .bakersContainer {
     text-align: center;
-    margin-top: 5%;
     padding: 20px;
   }
   
@@ -72,5 +71,9 @@
   
   .description {
     margin-top: 5%;
+    max-width: 600px;
+  }
+
+  .description2 {
     max-width: 600px;
   }
