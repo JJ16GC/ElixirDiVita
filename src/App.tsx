@@ -4,7 +4,7 @@ import Header from "./components/Header";
 import CartModal from "./components/CartModal";
 import { useCart } from "./components/hooks/useCart";
 import Modal from "react-modal";
-import '../src/App.css';
+import '../src/styles/global.css';
 import Loading from "./components/Loading";
 
 Modal.setAppElement("#root");

@@ -1,6 +1,7 @@
 // src/components/Modal.tsx
 import React from 'react';
 
+
 interface ModalProps {
   message: string;
   onClose: () => void;

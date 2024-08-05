@@ -77,12 +77,11 @@ ul {
 
 header {
   width: 100%;
-  position: flex;
+  position: fixed;
   top: 0;
   left: 0;
   z-index: 1;
-  /* background-image: linear-gradient(to bottom, rgba(68, 63, 63, 0.5), transparent); */
-  background-color: #f2eae4;
+  background-color: var(--main-font-color);
 }
 
 .navbar {
@@ -193,13 +192,10 @@ header {
 /* src/styles/ProductItem.css */
 
 .product-list {
+  margin-top: 15%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-}
-
-.cart-count {
-  margin: 5px;
 }
 
 .cart-button {
@@ -637,14 +633,6 @@ h1.headline {
   margin-bottom: 0;
 }
 
-/* TASTY SECTION 
-
-.tasty {
-  background: url("images/tasty.jpg") center no-repeat;
-  background-size: cover;
-}
-  
-*/
 /* FOOTER */
 
 footer {

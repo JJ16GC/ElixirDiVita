@@ -1,4 +1,5 @@
 import { Container, Row, Col, Image } from 'react-bootstrap';
+import '../styles/OurStory.css'
 
 const OurStory = () => {
     return (

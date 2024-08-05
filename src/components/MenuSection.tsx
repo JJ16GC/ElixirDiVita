@@ -1,4 +1,6 @@
 import { Container, Row, Col, Image } from "react-bootstrap";
+import '../styles/MenuSection.css'
+
 
 const MenuSection = () => {
   return (
@@ -20,13 +22,7 @@ const MenuSection = () => {
               </div>
             </div>
             <p>
-              En mi chocolatería, cada bombón es una pequeña obra de arte,
-              diseñada para ofrecer una experiencia sensorial única. Utilizo
-              ingredientes de alta calidad y técnicas innovadoras para crear
-              bombones que no son solo deliciosos, sino también visualmente
-              impresionantes. Ya sea que busques un regalo especial o un
-              capricho personal, mis bombones están hechos para sorprender y
-              deleitar.
+              -- TEXTO --
             </p>
             <a href="/productos" className="btn btn-secondary">
               Ver Menu Completo

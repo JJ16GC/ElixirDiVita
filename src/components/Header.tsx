@@ -9,6 +9,7 @@ import {
 import { useLocation } from "react-router-dom";
 import { Product } from "../types"; // Ajusta la ruta según corresponda
 import { Image } from 'react-bootstrap';
+import '../styles/Header.css';
 
 interface HeaderProps {
   onCartClick: () => void;

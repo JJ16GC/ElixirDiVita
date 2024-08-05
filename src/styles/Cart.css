@@ -1,22 +1,8 @@
-/* src/components/CartModal.css */
-:root {
-  --main-font: "Source Sans Pro", sans-serif;
-  --secondary-font: "Poiret One", cursive;
-  --body-font: "Cabin", sans-serif;
-  --headings-font: "Herr Von Muellerhoff", cursive;
-  --main-font-color-dark: #7c7c7d;
-  --main-font-color: #f2eae4;
-  --secondary-font-color: #d6bda9;
-  --body-font-color: #515151;
-  --white-color: #fff;
-  --dark-bg: #121212;
-}
-
 .cart-modal {
   position: fixed;
   top: 0;
   right: -100%;
-  width: 400px;
+  width: 350px;
   height: 100%;
   background-color: var(--main-font-color);
   box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);

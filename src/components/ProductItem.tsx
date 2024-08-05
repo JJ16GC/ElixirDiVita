@@ -3,6 +3,8 @@ import Modal from "react-modal";
 import { Product } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
+import '../styles/ProductItem.css'
+
 
 Modal.setAppElement("#root");
 

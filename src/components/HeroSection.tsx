@@ -1,3 +1,5 @@
+import '../styles/HeroSection.css'
+
 const HeroSection = () => {
   return (
     <section className="hero" id="hero">
