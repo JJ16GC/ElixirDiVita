@@ -1,12 +1,16 @@
 // src/pages/AboutPage.tsx
 import React from "react";
-import OurBakers from "../components/OurBakers";
+import { MyComponent } from "../components/OurBakers";
+import "react-accordion-ts/src/panel.css";
+import "../styles/MyComponent.module.css";
+import ImageComponent from "../components/ImageComponent";
 
 const AboutMePage: React.FC = () => {
   return (
     <div className="container">
+      <ImageComponent></ImageComponent>
       <div className="section">
-        <OurBakers></OurBakers>
+        <MyComponent></MyComponent>
       </div>
     </div>
   );

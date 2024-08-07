@@ -7,28 +7,15 @@ header {
   background-color: var(--main-font-color);
 }
 
+.logo-imagen {
+  width: auto;
+}
+
 .navbar {
-  height: 8rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: white;
-}
-
-.logo-imagen {
-  height: 8em;
-  margin-top: 3%;
-}
-
-.logo {
-  font-size: 2.5rem;
-  letter-spacing: 0.4rem;
-  font-family: var(--main-font-titulos);
-  color: var(--third-font-color);
-}
-
-.logo:hover {
-  color: var(--secondary-font-color);
 }
 
 .menu-toggle {

@@ -8,11 +8,7 @@
 }
 
 .headline {
-  font-family: var(--main-alegreya);
   font-style: italic;
-  font-size: 3.5rem;
-  font-weight: 900;
-  color: var(--white-color);
   letter-spacing: 0.2rem;
   margin-right: -0.5rem;
   opacity: 0;

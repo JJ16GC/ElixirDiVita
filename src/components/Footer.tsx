@@ -1,16 +1,16 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faFacebook,
   faInstagram,
   faTiktok,
   faWhatsapp,
-} from "@fortawesome/free-brands-svg-icons";
+} from '@fortawesome/free-brands-svg-icons';
 import {
   faAsterisk,
   faChevronUp,
   faEnvelope,
-} from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import '../styles/Footer.css'
+} from '@fortawesome/free-solid-svg-icons';
+import "../styles/Footer.css";
 
 const Footer = () => {
   return (
@@ -64,14 +64,14 @@ const Footer = () => {
                 <li>
                   <a href="elisirdivitachocolateria@gmail.com">
                     <i className="fab fa-pinterest">
-                    <FontAwesomeIcon icon={faEnvelope} />
+                      <FontAwesomeIcon icon={faEnvelope} />
                     </i>
                   </a>
                 </li>
                 <li>
                   <a href="https://www.tiktok.com/@elisirdivitachocolateria">
                     <i className="fab fa-pinterest">
-                    <FontAwesomeIcon icon={faTiktok} />
+                      <FontAwesomeIcon icon={faTiktok} />
                     </i>
                   </a>
                 </li>
@@ -81,10 +81,11 @@ const Footer = () => {
               <h4>Suscribete</h4>
               <form action="" className="newsletter-form">
                 <div className="newsletter-form-box">
-                  <input
-                    type="text"
+                <input
+                    type="email"
                     className="newsletter-input"
-                    placeholder="Your email address..."
+                    placeholder="Tu dirección de correo electrónico..."
+                    aria-label="Email address"
                   />
                   <button className="newsletter-btn" type="submit">
                     <i className="fas fa-envelope">

@@ -2,6 +2,7 @@ import { useState} from "react";
 import { useCart } from "../src/components/hooks/useCart";
 import { Product } from "../src/types";
 import { uploadImage } from "./firestoreService";
+import '../src/styles/AddProductForm.css'
 
 const AddProductComponent: React.FC = () => {
   const { addProduct } = useCart();

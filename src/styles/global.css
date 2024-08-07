@@ -7,14 +7,6 @@
   box-sizing: border-box;
 }
 
-/* Font faces */
-@font-face {
-  font-family: "Manstein";
-  src: url("../assets/Manstein.ttf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* Root variables */
 :root {
   --main-font: "Source Sans Pro", sans-serif;
@@ -33,6 +25,8 @@
 }
 
 /* General HTML styles */
+
+
 html {
   font-family: var(--body-font);
   font-size: 10px;
@@ -46,14 +40,12 @@ body {
 }
 
 section {
-  padding: 3.9rem 0;
   overflow: hidden;
 }
 
 img {
   width: 100%;
   max-width: 100%;
-  height: calc(100% - XXpx); /* Replace XXpx with appropriate value */
   object-fit: cover;
 }
 
@@ -78,10 +70,6 @@ ul {
 }
 
 @media screen and (min-width: 900px) {
-
-  .logo-imagen {
-    height: 12rem;
-  }
 
   .navbar {
     height: 12rem;

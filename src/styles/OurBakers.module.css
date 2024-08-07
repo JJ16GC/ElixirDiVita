@@ -1,8 +1,13 @@
 .bakersContainer {
     text-align: center;
     padding: 20px;
+    margin-top: 10%;
   }
   
+section {
+  padding: 3%;
+}
+
   .title {
     font-family: var(--main-font-titulos);
     color: var(--secondary-font-color);
@@ -11,7 +16,6 @@
   
   .subtitle {
     font-size: 36px;
-    margin-top: -10px;
     font-family: var(--secondary-font);
   }
   
@@ -19,7 +23,6 @@
     display: flex;
     justify-content: center;
     gap: 20px;
-    margin-top: 20px;
   }
   
   .bakerCard {

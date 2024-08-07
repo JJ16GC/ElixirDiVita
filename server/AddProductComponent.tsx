@@ -1,8 +1,8 @@
 // AddProductComponent.tsx
 import React, { useState } from "react";
-import { useCart } from "./hooks/useCart";
-import { Product } from "../types";
-import { uploadImage } from "../../server/firestoreService";
+import { useCart } from '../src/components/hooks/useCart'
+import { Product } from "../src/types";
+import { uploadImage } from "./firestoreService";
 import Modal from "./Modal";
 
 const AddProductComponent: React.FC = () => {
