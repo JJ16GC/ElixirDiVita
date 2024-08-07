@@ -1,0 +1,73 @@
+/* Contenedor principal */
+.container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  max-width: 900px; /* Ajusta según tu diseño */
+  margin: 120px auto 0 auto; /* Agrega margen superior */
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 3%;
+}
+
+/* Sección de la imagen */
+.imageSection {
+  flex: 1;
+  margin: 2%;
+}
+
+/* Sección del acordeón */
+.accordionSection {
+  flex: 1.5;
+  margin: 5% 3% 5% 5%;
+}
+
+.titulo {
+  font-family: var(--main-alegreya);
+  color: var(--secondary-font-color);
+  font-size: 30px;
+  margin-bottom: 5%;
+}
+
+/* Título del acordeón */
+.accordionTitle {
+  font-size: 1.8em;
+  color: #333;
+  font-family: var(--main-alegreya);
+  font-style: italic;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #fff;
+  transition: box-shadow 0.3s ease;
+}
+
+/* Icono */
+.icon {
+  transition: transform 0.3s ease;
+}
+
+/* Rotar icono cuando activo */
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* Contenido del acordeón */
+.accordionContent {
+  background-color: var(--main-font-color);
+  padding: 5%;
+  display: none;
+}
+
+.accordionContent.active {
+  display: block;
+}
+
+/* Título del acordeón activo */
+.accordionTitle.active {
+  background-color: #e0e0e0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}

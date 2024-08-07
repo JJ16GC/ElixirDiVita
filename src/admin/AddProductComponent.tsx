@@ -5,6 +5,8 @@ import { Product } from "../types";
 import { uploadImage } from "../../server/firestoreService";
 import Modal from "../components/Modal";
 import { useNavigate } from "react-router-dom";
+import '../styles/AddProductForm.css'
+
 
 const AddProductComponent: React.FC = () => {
   const { addProduct } = useCart();

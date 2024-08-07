@@ -1,3 +1,5 @@
+import '../styles/Always.css'
+
 const AlwaysFreshSection = () => (
   <section className="always-fresh shared">
     <div className="container">
