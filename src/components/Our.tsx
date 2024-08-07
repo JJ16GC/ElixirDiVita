@@ -9,7 +9,7 @@ const Our: React.FC = () => (
       <div className={styles.bakersGrid}>
         <div className={styles.bakerCard}>
           <p className={styles.description2}>
-            Habremos establecido nuestra primera tienda física en Bogotá-Colombia,
+            Habremos establecido nuestra primera tienda física en Bogotá, Colombia,
             posicionándonos como un referente en la creación de experiencias
             sensoriales con chocolates. Acercando nuestras innovadoras propuestas
             gastronómicas a un público más amplio.
@@ -28,7 +28,7 @@ const Our: React.FC = () => (
             A través de nuestros bombones de chocolate, combinando lo tradicional
             con la innovación, ofreciendo una variedad de rellenos líquidos y
             sensaciones únicas. Nuestra misión es deleitar a nuestros clientes
-            con cada bocado, queremos que cada bombón sea una pequeña joya que
+            con cada bocado. Queremos que cada bombón sea una pequeña joya que
             se disfrute plenamente.
           </p>
         </div>

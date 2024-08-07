@@ -82,7 +82,7 @@
 }
 
 .cart-button:hover {
-  background-color: #0056b3;
+  background-color: var(--main-font-color);
 }
 
 .ReactModal__Overlay {

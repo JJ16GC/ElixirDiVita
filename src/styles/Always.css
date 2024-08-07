@@ -1,6 +1,7 @@
 .always-fresh {
   background: url("/images/image.webp") center no-repeat;
   background-size: cover;
+  padding: 4rem 0; /* Add some padding for better spacing */
 }
 
 .shared {
@@ -8,4 +9,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Animations */
+.animate-top {
+  animation: fadeUp 1s ease-out;
+}
+
+.animate-bottom {
+  animation: fadeUp 1s ease-out 0.5s;
+}
+
+/* Additional responsiveness specific to this component */
+@media (max-width: 768px) {
+  .always-fresh .sub-headline {
+    font-size: 3.5rem;
+  }
+
+  .always-fresh .headline {
+    font-size: 1.8rem;
+  }
 }

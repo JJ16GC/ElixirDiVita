@@ -81,9 +81,7 @@ header {
   transform: scale(1);
 }
 
-.nav-item {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.3);
-}
+
 
 .nav-link {
   display: block;
@@ -97,4 +95,8 @@ header {
 
 .nav-link:hover {
   color: var(--secondary-font-color);
+}
+
+.cart-count {
+  margin-left: 0.5rem;
 }

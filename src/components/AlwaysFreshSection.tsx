@@ -1,6 +1,6 @@
-import '../styles/Always.css'
+import '../styles/Always.css';
 
-const AlwaysFreshSection = () => (
+const AlwaysFreshSection: React.FC = () => (
   <section className="always-fresh shared">
     <div className="container">
       <div className="global-headline">

@@ -4,15 +4,21 @@ import classNames from 'classnames';
 import '../styles/MenuSection.css';
 
 const MenuSection: React.FC = () => {
+  const images = [
+    "images/LGO - copia.webp",
+    "images/LGO - copia.webp",
+    "images/LGO - copia.webp",
+    "images/LGO - copia.webp",
+  ];
+
   return (
     <section className="menu">
       <Container>
         <Row>
           <Col md={6} className={classNames('image-group', 'padding-right', 'animate-left')}>
-            <Image src="images/LGO - copia.webp" alt="Menu Item 1" fluid />
-            <Image src="images/LGO - copia.webp" alt="Menu Item 2" fluid />
-            <Image src="images/LGO - copia.webp" alt="Menu Item 3" fluid />
-            <Image src="images/LGO - copia.webp" alt="Menu Item 4" fluid />
+            {images.map((src, index) => (
+              <Image key={index} src={src} alt={`Menu Item ${index + 1}`} fluid />
+            ))}
           </Col>
           <Col md={6} className={classNames('description', 'animate-right')}>
             <div className="global-headline">
