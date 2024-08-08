@@ -33,22 +33,6 @@ header {
   display: none;
 }
 
-.nav-list {
-  list-style: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80%;
-  min-height: 100vh;
-  background-color: var(--main-font-color);
-  padding: 4.4rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  z-index: 1250;
-  transform: translateX(-100%);
-  transition: transform 0.5s;
-}
 
 .navbar::before {
   content: "";
@@ -95,8 +79,4 @@ header {
 
 .nav-link:hover {
   color: var(--secondary-font-color);
-}
-
-.cart-count {
-  margin-left: 0.5rem;
 }

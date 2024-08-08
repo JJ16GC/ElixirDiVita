@@ -57,7 +57,7 @@ export const MyComponent = () => {
         ))}
       </div>
       <div className={styles.imageSection}>
-        <img className="imgs" src="images/perfil.webp" alt="Descripción de la imagen" />
+        <img className="imgs" src="images/perfil_laura.webp" alt="Descripción de la imagen" />
       </div>
     </div>
   );
