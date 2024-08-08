@@ -71,3 +71,22 @@
   background-color: #e0e0e0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    display: block;
+    text-align: center; /* Centra el contenido */
+  }
+
+  .imageSection {
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    margin: 0 auto 20px auto; /* Centra la imagen y agrega un margen inferior */
+  }
+
+  .imageSection img {
+    width: 150px; /* Ajusta el tamaño de la imagen según lo necesites */
+    height: auto;
+    display: block;
+    margin: 0 auto; /* Centra la imagen dentro de su contenedor */
+  }
+}

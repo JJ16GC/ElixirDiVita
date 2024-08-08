@@ -65,3 +65,21 @@ section {
   .description2 {
     max-width: 600px;
   }
+
+  .imgs {
+    width: 200px;
+    height: 200px;
+  }
+
+  @media screen and (max-width: 600px) {
+    .bakersGrid {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .bakerImage {
+      width: 100%;
+      max-width: 180px;
+      height: auto;
+    }
+  }
