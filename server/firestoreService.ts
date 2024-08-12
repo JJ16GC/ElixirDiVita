@@ -15,8 +15,8 @@ const getProducts = async (): Promise<Product[]> => {
       name: data.name,
       description: data.description,
       price: data.price,
-      quantity: data.quantity,
-      imageUrl: data.imageUrl,
+      imageUrls: data.imageUrls,
+      quantity: 0
     };
     products.push(product);
   });
@@ -29,12 +29,14 @@ const addProduct = async (product: Omit<Product, 'id'>): Promise<Product> => {
   return { id: docRef.id, ...product };
 };
 
-// Función para subir una imagen a Firebase Storage y obtener la URL de descarga
-const uploadImage = async (file: File): Promise<string> => {
-  const storageRef = ref(storage, `images/${file.name}`);
-  await uploadBytes(storageRef, file);
-  const url = await getDownloadURL(storageRef);
-  return url;
+// Función para subir múltiples imágenes a Firebase Storage y obtener las URLs de descarga
+const uploadImages = async (files: File[]): Promise<string[]> => {
+  const uploadPromises = files.map(file => {
+    const storageRef = ref(storage, `images/${file.name}`);
+    return uploadBytes(storageRef, file).then(() => getDownloadURL(storageRef));
+  });
+  
+  return Promise.all(uploadPromises);
 };
 
-export { getProducts, addProduct, uploadImage };
+export { getProducts, addProduct, uploadImages };

@@ -42,7 +42,6 @@ const ProductPage: React.FC<ProductPageProps> = ({ products, onAddToCart }) => {
     <div>
       <Suspense fallback={<Loading />}>
         <ProductList products={products} onAddToCart={onAddToCart} />
-        <button onClick={() => setShowCart(true)}></button>
         <CartModal
           show={showCart}
           handleClose={() => setShowCart(false)}

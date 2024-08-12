@@ -119,22 +119,12 @@ footer .asterisk {
   .footer__content h4 {
     font-size: 1.5rem;
   }
-  
-  .social-icons {
-    flex-direction: column;
-  }
 
   .social-icons li {
-    margin: 0.5rem 0;
+    margin: 0.5 rem 0;
   }
 
-  .newsletter-form {
-    flex-direction: column;
-  }
 
-  .newsletter-form-box {
-    flex-direction: column;
-  }
 
   .newsletter-input {
     margin-bottom: 0.5rem;

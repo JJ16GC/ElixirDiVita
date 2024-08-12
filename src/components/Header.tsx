@@ -12,7 +12,7 @@ interface HeaderProps {
   cartItems: Product[];
 }
 
-const imageUrl = "https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/images%2FLGO%20-%20copia.webp?alt=media&token=3a72b767-1e4d-474b-87c0-38d3efd47c70";
+const imageUrl = "https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/images%2FLogo-nombre-2.webp?alt=media&token=67ad432d-d50c-4a60-a620-ecd93ad1505a";
 
 const preloadImage = (url: string) => {
   const img = new window.Image();

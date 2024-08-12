@@ -3,7 +3,9 @@ import Modal from "react-modal";
 import { Product } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
-import '../styles/ProductItem.css';
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importa el CSS del carrusel
+import "../styles/ProductItem.css";
 
 Modal.setAppElement("#root");
 
@@ -12,7 +14,7 @@ interface ProductItemProps {
   onAddToCart: (product: Product) => void;
 }
 
-const formatPrice = (price: number): string => 
+const formatPrice = (price: number): string =>
   price.toLocaleString("es-CO", {
     style: "currency",
     currency: "COP",
@@ -33,7 +35,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
     <div className="product">
       <div className="product-item">
         <img
-          src={product.imageUrl}
+          src={product.imageUrls[0]}
           alt={product.name}
           onClick={openModal}
           className="product-image"
@@ -55,21 +57,29 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
         overlayClassName="modal-overlay"
       >
         <div className="modal-content">
-          <div className="modal-left">
-            <img
-              src={product.imageUrl}
-              alt={product.name}
-              className="modal-image"
-            />
-          </div>
-          <div className="modal-right">
-            <button
-              className="close-button-modal"
-              onClick={closeModal}
-              aria-label="Cerrar modal"
-            >
-              <FontAwesomeIcon icon={faXmark} />
-            </button>
+          <button
+            className="modal-close-button"
+            onClick={closeModal}
+            aria-label="Cerrar modal"
+          >
+            <FontAwesomeIcon icon={faXmark} />
+          </button>
+          <Carousel
+            showThumbs={false}
+            centerMode
+            infiniteLoop
+            useKeyboardArrows
+            autoPlay
+            emulateTouch
+            showStatus={false}
+          >
+            {product.imageUrls.map((url, index) => (
+              <div key={index}>
+                <img src={url} alt={`${product.name} ${index + 1}`} />
+              </div>
+            ))}
+          </Carousel>
+          <div className="product-list-2">
             <h2 className="modal-title">{product.name}</h2>
             <p className="modal-description">{product.description}</p>
             <p className="modal-price">{formatPrice(product.price)}</p>

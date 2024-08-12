@@ -1,81 +1,102 @@
-// AddProductComponent.tsx
 import React, { useState } from "react";
 import { useCart } from "../components/hooks/useCart";
 import { Product } from "../types";
-import { uploadImage } from "../../server/firestoreService";
+import { uploadImages } from "../../server/firestoreService";
 import Modal from "../components/Modal";
-import { useNavigate } from "react-router-dom";
-import '../styles/AddProductForm.css'
-
+import "../styles/AddProductForm.css";
 
 const AddProductComponent: React.FC = () => {
   const { addProduct } = useCart();
-  const [name, setName] = useState('');
-  const [description, setDescription] = useState('');
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
-  const [quantity, setQuantity] = useState(0);
-  const [imageFile, setImageFile] = useState<File | null>(null);
+  const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [showModal, setShowModal] = useState(false);
-  const navigate = useNavigate();
-
+  const [loading, setLoading] = useState(false); // Nuevo estado para manejar carga
 
   const handleAddProduct = async () => {
-    if (imageFile) {
-      try {
-        // Subir imagen y obtener URL
-        const imageUrl = await uploadImage(imageFile);
-        // Crear producto
-        const newProduct: Omit<Product, 'id'> = { name, description, price, quantity, imageUrl };
-        // Añadir producto
-        await addProduct(newProduct);
-        // Mostrar modal
-        setShowModal(true);
-        // Resetear campos
-        setName('');
-        setDescription('');
-        setPrice(0);
-        setQuantity(0);
-        setImageFile(null);
-        navigate("/productos");
-        window.location.reload();
-      } catch (error) {
-        console.error('Error uploading image or adding product:', error);
-      }
-    } else {
-      console.error('No image file selected');
+    if (!name || !description || price <= 0 ) {
+      console.error("Please fill all fields correctly");
+      return;
+    }
+
+    if (imageFiles.length === 0) {
+      console.error("No image files selected");
+      return;
+    }
+
+    setLoading(true); // Iniciar carga
+
+    try {
+      // Subir imágenes y obtener URLs
+      const imageUrls = await uploadImages(imageFiles);
+
+      // Crear producto
+      const newProduct: Omit<Product, "id"> = {
+        name,
+        description,
+        price,
+        imageUrls,
+        quantity: 0
+      };
+
+      // Añadir producto
+      await addProduct(newProduct);
+
+      // Mostrar modal
+      setShowModal(true);
+
+      // Resetear campos
+      setName("");
+      setDescription("");
+      setPrice(0);
+      setImageFiles([]);
+    } catch (error) {
+      console.error("Error Subiendo imagenes o agregando productos:", error);
+    } finally {
+      setLoading(false); // Finalizar carga
     }
   };
 
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImageFile(e.target.files[0]);
+    if (e.target.files) {
+      setImageFiles(Array.from(e.target.files)); // Convertir la lista de archivos en un array
     }
   };
 
   const handleCloseModal = () => {
     setShowModal(false);
-    window.location.reload(); // Recargar la página después de cerrar el modal
+    // Puedes agregar lógica aquí para actualizar la interfaz si es necesario
   };
 
   return (
     <div className="form">
       <h2>Agregar Producto</h2>
-      <label>Nombre</label>
-      <input type="text" value={name} onChange={(e) => setName(e.target.value)} placeholder="Nombre" />
-      <label>Descripcion</label>
-      <textarea className="area" value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Descripcion" />
-      <label>Precio</label>
-      <input type="number" value={price} onChange={(e) => setPrice(Number(e.target.value))} placeholder="Precio" />
-      <label>Cantidad</label>
-      <input type="number" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))} placeholder="Cantidad" />
-      <input type="file" onChange={handleImageChange} />
-      <button className="submit" onClick={handleAddProduct}>Agregar Producto</button>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Nombre"
+      />
+      <input
+        type="text"
+        value={description}
+        onChange={(e) => setDescription(e.target.value)}
+        placeholder="Descripcion"
+      />
+      <input
+        type="number"
+        value={price}
+        onChange={(e) => setPrice(Number(e.target.value))}
+        placeholder="Precio"
+      />
+      <input type="file" onChange={handleImageChange} multiple />
+      <button className="submit" onClick={handleAddProduct} disabled={loading}>
+        {loading ? "Adding..." : "Agregar Producto"}
+      </button>
 
       {showModal && (
-        <Modal
-          message="Producto registrado"
-          onClose={handleCloseModal}
-        />
+        <Modal message="Producto agregado" onClose={handleCloseModal} />
       )}
     </div>
   );

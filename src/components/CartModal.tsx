@@ -9,7 +9,7 @@ interface CartItem {
   name: string;
   price: number;
   quantity: number;
-  imageUrl: string;
+  imageUrls: string[];
 }
 
 interface CartModalProps {
@@ -68,7 +68,7 @@ const CartItemComponent: React.FC<{
   onRemoveProduct: (id: string) => void;
 }> = ({ item, onIncreaseQuantity, onDecreaseQuantity, onRemoveProduct }) => (
   <li className="cart-item">
-    <img src={item.imageUrl} alt={item.name} />
+    <img src={item.imageUrls[0]} alt={item.name} />
     <div className="product-info">
       <p className="product-title">{item.name}</p>
       <div className="quantity-controls">

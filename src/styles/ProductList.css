@@ -1,10 +1,45 @@
-.container-product {
-  padding: 20px;
+.modal-content {
+  display: flex;
+  flex-direction: column; /* Cambia la dirección del flujo de los elementos */
+  max-width: 500px;
+  margin: auto;
+  background-color: #f2eae4;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
 }
 
-.product-list {
+.modal-content img {
+  width: 100%; /* Ajusta el tamaño según lo necesario */
+  height: auto;
+  max-height: 400px; /* Ajusta esta altura según lo que necesites */
+}
+
+.product-list-2 {
+  padding: 20px;
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding-inline: 15%;
+  flex-direction: column;
+  align-items: center;
+}
+
+.modal-close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #f0f0f0;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 1002; /* Asegura que esté por encima del contenido del modal */
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+.modal-description, .modal-price {
+  margin: 10px 0;
 }

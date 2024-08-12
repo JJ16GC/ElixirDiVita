@@ -6,6 +6,8 @@ import { useCart } from "./components/hooks/useCart";
 import Modal from "react-modal";
 import '../src/styles/global.css';
 import Loading from "./components/Loading";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 Modal.setAppElement("#root");
 
