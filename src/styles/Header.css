@@ -8,7 +8,8 @@ header {
 }
 
 .logo-imagen {
-  width: auto;
+  margin: 1rem 0 0 1rem;
+  max-width: 75%;
 }
 
 .navbar {
@@ -79,4 +80,10 @@ header {
 
 .nav-link:hover {
   color: var(--secondary-font-color);
+}
+
+@media (max-width: 600px) {
+  .logo-imagen {
+    width: 150px;
+  }
 }

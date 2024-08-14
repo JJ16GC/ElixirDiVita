@@ -12,7 +12,7 @@ interface HeaderProps {
   cartItems: Product[];
 }
 
-const imageUrl = "https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/images%2FLogo-nombre-2.webp?alt=media&token=67ad432d-d50c-4a60-a620-ecd93ad1505a";
+const imageUrl = "https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2Flogo-250px.webp?alt=media&token=286cbebb-e9eb-4a0e-812a-da2b3fa19ba3";
 
 const preloadImage = (url: string) => {
   const img = new window.Image();
@@ -100,7 +100,7 @@ const Header: React.FC<HeaderProps> = React.memo(({ onCartClick, cartItems }) =>
               src={imageUrl}
               alt="ElixirDiVita Logo"
               fluid
-              height={100}
+              width={100}
               loading="eager"
             />
           </Link>

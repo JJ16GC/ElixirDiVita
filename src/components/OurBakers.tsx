@@ -34,7 +34,7 @@ export const MyComponent = () => {
       <div className={styles.imageSection}>
         <img
           className="imgs"
-          src="images/perfil_laura.webp"
+          src="https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2Fperfil_laura.webp?alt=media&token=78c7232d-3a60-4bde-9b99-2bb2b96dd974"
           alt="Descripción de la imagen"
         />
       </div>

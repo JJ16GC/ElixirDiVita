@@ -1,10 +1,12 @@
 .hero {
   width: 100%;
-  height: 100vh;
-  background: url("") center no-repeat;
+  height: 75vh;
+  background: url("https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2FFondo.webp?alt=media&token=bffaa42a-96ac-4d15-92af-49453a43d2ec") center no-repeat;
   background-size: cover;
   display: flex;
+  justify-content: center;
   align-items: center;
+  
 }
 
 .headline {

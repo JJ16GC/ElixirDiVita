@@ -4,7 +4,7 @@ import { Image } from "react-bootstrap";
 
 const StorySection: React.FC = () => {
   // Define la URL de la imagen aquí si es dinámica
-  const imageUrl = "images/perfil_2.webp"; // Reemplaza con la URL correcta
+  const imageUrl = "https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2Fperfil_2.webp?alt=media&token=39e52efc-32f4-4ed0-adb5-d7f77c4542e1"; // Reemplaza con la URL correcta
 
   return (
     <section className="our-story">
@@ -37,7 +37,6 @@ const StorySection: React.FC = () => {
               src={imageUrl}
               alt="Imagen de la historia"
               fluid
-              width={100}
               height={100}
             />
           </div>
