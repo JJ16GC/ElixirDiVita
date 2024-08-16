@@ -15,6 +15,7 @@ const getProducts = async (): Promise<Product[]> => {
       name: data.name,
       description: data.description,
       price: data.price,
+      boxes: data.boxes,
       imageUrls: data.imageUrls,
       quantity: 0
     };

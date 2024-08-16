@@ -10,18 +10,19 @@ const AddProductComponent: React.FC = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState(0);
+  const [boxes, setBoxes] = useState(false);
   const [imageFiles, setImageFiles] = useState<File[]>([]);
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false); // Nuevo estado para manejar carga
 
   const handleAddProduct = async () => {
-    if (!name || !description || price <= 0 ) {
-      console.error("Please fill all fields correctly");
+    if (!name || !description || price <= 0) {
+      console.error("Debe rellenar todos los items");
       return;
     }
 
     if (imageFiles.length === 0) {
-      console.error("No image files selected");
+      console.error("No imagen seleccionada");
       return;
     }
 
@@ -36,8 +37,9 @@ const AddProductComponent: React.FC = () => {
         name,
         description,
         price,
+        quantity: 0,
+        boxes, // Añadir el valor de boxes aquí
         imageUrls,
-        quantity: 0
       };
 
       // Añadir producto
@@ -50,6 +52,7 @@ const AddProductComponent: React.FC = () => {
       setName("");
       setDescription("");
       setPrice(0);
+      setBoxes(false);
       setImageFiles([]);
     } catch (error) {
       console.error("Error Subiendo imagenes o agregando productos:", error);
@@ -84,6 +87,7 @@ const AddProductComponent: React.FC = () => {
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Descripcion"
       />
+
       <input
         type="number"
         value={price}
@@ -91,6 +95,16 @@ const AddProductComponent: React.FC = () => {
         placeholder="Precio"
       />
       <input type="file" onChange={handleImageChange} multiple />
+
+      <label className="boxes">
+        <input
+          type="checkbox"
+          checked={boxes}
+          onChange={(e) => setBoxes(e.target.checked)}
+        />
+        Tiene varios empaques
+      </label>
+
       <button className="submit" onClick={handleAddProduct} disabled={loading}>
         {loading ? "Adding..." : "Agregar Producto"}
       </button>

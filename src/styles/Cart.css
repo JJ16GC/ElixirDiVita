@@ -117,7 +117,7 @@
   display: block;
   width: 100%;
   padding: 10px;
-  background-image: url("/images/madera.webp");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2Fmadera.webp?alt=media&token=9b5e8411-df62-409b-9e1f-1f5d47bbc074");
   color: #fff;
   text-align: center;
   border: none;
@@ -129,8 +129,8 @@
 /* Responsiveness */
 @media (max-width: 768px) {
   .cart-modal-content {
-    width: 95%;
-    margin: 20% auto 0 auto;
+    width: 75%;
+    margin: 5% auto 0 auto;
   }
 
   .cart-item img {

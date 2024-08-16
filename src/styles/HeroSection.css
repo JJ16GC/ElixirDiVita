@@ -58,7 +58,7 @@ h1.headline {
 
 .btn-primary {
   background-color: var(--secondary-font-color);
-  background-image: url("/images/madera.webp");
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2Fmadera.webp?alt=media&token=9b5e8411-df62-409b-9e1f-1f5d47bbc074");
   color: var(--main-font-color);
   padding: 2rem 3rem;
   transition: all 0.4s;

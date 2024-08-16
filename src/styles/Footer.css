@@ -21,9 +21,14 @@ footer {
 }
 
 .back-to-top a {
-  display: block;
+  display: inline-block;
+  padding: 12px 24px; /* Tamaño adecuado para el enlace */
+  font-size: 16px; /* Tamaño de fuente legible */
+  text-align: center;
+  line-height: 1.5;
+  border-radius: 4px; /* Bordes redondeados opcionales */
+  cursor: pointer;
   color: var(--white-color);
-  font-size: 2rem;
   animation: showsUp 2s infinite;
 }
 
@@ -110,8 +115,13 @@ footer .asterisk {
 }
 
 @keyframes showsUp {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 /* Media Queries for Responsive Design */
@@ -123,8 +133,6 @@ footer .asterisk {
   .social-icons li {
     margin: 0.5 rem 0;
   }
-
-
 
   .newsletter-input {
     margin-bottom: 0.5rem;

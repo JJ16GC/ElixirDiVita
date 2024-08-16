@@ -20,7 +20,8 @@ header {
 }
 
 .menu-toggle {
-  color: var(--white-color);
+  border: none;
+  color: var(--secondary-font-color);
   font-size: 2.2rem;
   position: absolute;
   top: 50%;
@@ -66,7 +67,9 @@ header {
   transform: scale(1);
 }
 
-
+.cart-count {
+  margin-left: 0.5rem;
+}
 
 .nav-link {
   display: block;

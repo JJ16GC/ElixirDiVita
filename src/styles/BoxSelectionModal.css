@@ -1,0 +1,77 @@
+.box-modal {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .box-modal-overlay {
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+  
+  .box-modal-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .box-modal-close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  .box-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 20px 0;
+  }
+  
+  .box-option {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .box-option:hover,
+  .box-option.selected {
+    background-color: #f0f0f0;
+  }
+  
+  .box-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .btn-modal {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s ease;
+  }
+  
+  .btn-modal:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  

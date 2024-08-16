@@ -38,6 +38,11 @@ const Header: React.FC<HeaderProps> = React.memo(({ onCartClick, cartItems }) =>
     };
   }, [isMenuOpen]);
 
+  // Cierra el menú cuando se cambia la ruta
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [location.pathname]);
+
   const NavList = useMemo(
     () => (
       <ul className={classNames('nav-list', { 'active': isMenuOpen })}>
@@ -91,9 +96,9 @@ const Header: React.FC<HeaderProps> = React.memo(({ onCartClick, cartItems }) =>
     <header>
       <div className="container">
         <nav className="navbar">
-          <div className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
+          <button className="menu-toggle" onClick={toggleMenu} aria-label="Toggle menu">
             <FontAwesomeIcon icon={isMenuOpen ? faTimes : faBars} />
-          </div>
+          </button>
           <Link to="/">
             <Image
               className="logo-imagen"

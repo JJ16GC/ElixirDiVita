@@ -4,14 +4,15 @@ import { Product } from "../types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { Carousel } from "react-responsive-carousel";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // Importa el CSS del carrusel
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import BoxSelectionModal from "./BoxSelectionModal";
 import "../styles/ProductItem.css";
 
 Modal.setAppElement("#root");
 
 interface ProductItemProps {
   product: Product;
-  onAddToCart: (product: Product) => void;
+  onAddToCart: (product: Product, boxType: string) => void;
 }
 
 const formatPrice = (price: number): string =>
@@ -23,13 +24,28 @@ const formatPrice = (price: number): string =>
 
 const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [boxModalIsOpen, setBoxModalIsOpen] = useState(false);
 
   const openModal = useCallback(() => setModalIsOpen(true), []);
   const closeModal = useCallback(() => setModalIsOpen(false), []);
 
-  const handleAddToCart = useCallback(() => {
-    onAddToCart(product);
-  }, [onAddToCart, product]);
+  const openBoxModal = useCallback(() => {
+    if (product.boxes) {
+      setBoxModalIsOpen(true);
+    } else {
+      onAddToCart(product, "");
+    }
+  }, [product, onAddToCart]);
+
+  const closeBoxModal = useCallback(() => setBoxModalIsOpen(false), []);
+
+  const handleAddToCart = useCallback(
+    (boxType: string) => {
+      onAddToCart(product, boxType);
+      closeBoxModal();
+    },
+    [onAddToCart, product, closeBoxModal]
+  );
 
   return (
     <div className="product">
@@ -44,7 +60,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
         <p className="product-price">{formatPrice(product.price)}</p>
         <button
           className="cart-button"
-          onClick={handleAddToCart}
+          onClick={openBoxModal}
           aria-label={`Agregar ${product.name} al carrito`}
         >
           Agregar
@@ -85,7 +101,7 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
             <p className="modal-price">{formatPrice(product.price)}</p>
             <button
               className="btn-modal"
-              onClick={handleAddToCart}
+              onClick={openBoxModal}
               aria-label={`Agregar ${product.name} al carrito desde modal`}
             >
               Agregar al Carrito
@@ -93,6 +109,14 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
           </div>
         </div>
       </Modal>
+
+      {product.boxes && (
+        <BoxSelectionModal
+          isOpen={boxModalIsOpen}
+          onRequestClose={closeBoxModal}
+          onSelectBox={handleAddToCart}
+        />
+      )}
     </div>
   );
 };

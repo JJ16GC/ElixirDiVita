@@ -17,7 +17,7 @@ const Footer = () => {
     <footer>
       <div className="container">
         <div className="back-to-top">
-          <a href="#hero">
+        <a href="/" aria-label="Volver al inicio de la página">
             <FontAwesomeIcon icon={faChevronUp} />
           </a>
         </div>
@@ -84,7 +84,7 @@ const Footer = () => {
                     placeholder="Tu dirección de correo electrónico..."
                     aria-label="Email address"
                   />
-                  <button className="newsletter-btn" type="submit">
+                  <button className="newsletter-btn" type="submit" aria-label="Suscribirse al boletín">
                     <FontAwesomeIcon icon={faEnvelope} />
                   </button>
                 </div>
