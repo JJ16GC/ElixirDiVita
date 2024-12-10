@@ -1,6 +1,6 @@
 .hero {
   width: 100%;
-  height: 75vh;
+  height: 100vh;
   background: url("https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2FFondo.webp?alt=media&token=bffaa42a-96ac-4d15-92af-49453a43d2ec") center no-repeat;
   background-size: cover;
   display: flex;
@@ -13,9 +13,7 @@
   font-style: italic;
   letter-spacing: 0.2rem;
   margin-right: -0.5rem;
-  opacity: 0;
   animation-name: scaleBigger;
-  animation-duration: 0.5s;
   animation-fill-mode: both;
 }
 
@@ -23,9 +21,8 @@ h1.headline {
   font-family: var(--main-alegreya);
   color: var(--third-font-color);
   margin-bottom: 4rem;
-  font-weight: 400;
+  font-weight: 600;
   font-size: 7rem;
-  opacity: 0;
   animation-duration: 0.5s;
   animation-fill-mode: both;
 }
@@ -64,9 +61,26 @@ h1.headline {
   transition: all 0.4s;
 }
 
-.btn-primary:hover {
-  background-color: var(--white-color);
-  color: var(--secondary-font-color);
+.floating-button {
+  position: fixed;
+  bottom: 70px; /* Distancia desde el fondo */
+  right: 20px; /* Distancia desde la derecha */
+  background-color: #800000; /* Color de fondo del botón */
+  color: white; /* Color del texto */
+  border: none; /* Sin borde */
+  border-radius: 50%; /* Botón redondo */
+  width: 60px; /* Ancho del botón */
+  height: 60px; /* Altura del botón */
+  display: flex; /* Para centrar el contenido */
+  justify-content: center; /* Centrar horizontalmente */
+  align-items: center; /* Centrar verticalmente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra para el efecto de profundidad */
+  transition: background-color 0.3s, transform 0.3s; /* Efecto de transición */
+}
+
+.floating-button:hover {
+  background-color: #a52a2a; /* Color de fondo al pasar el mouse */
+  transform: scale(1.1); /* Efecto de aumento al pasar el mouse */
 }
 
 @media screen and (max-width: 600px) {

@@ -100,7 +100,7 @@
 }
 
 .ReactModal__Content {
-  max-width: 85%;
+  max-width: 40%;
   max-height: 80%;
   margin: auto;
   padding: 20px;
@@ -186,4 +186,10 @@
 
 .product-item:hover {
   transform: translateY(-5px);
+}
+
+@media (max-width: 768px) {
+  .ReactModal__Content {
+    max-width: 80%;
+  }
 }

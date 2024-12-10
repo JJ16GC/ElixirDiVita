@@ -82,7 +82,6 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
           </button>
           <Carousel
             showThumbs={false}
-            centerMode
             infiniteLoop
             useKeyboardArrows
             autoPlay
@@ -97,7 +96,10 @@ const ProductItem: React.FC<ProductItemProps> = ({ product, onAddToCart }) => {
           </Carousel>
           <div className="product-list-2">
             <h2 className="modal-title">{product.name}</h2>
-            <p className="modal-description">{product.description}</p>
+            <p
+              className="modal-description"
+              dangerouslySetInnerHTML={{ __html: product.description }}
+            />
             <p className="modal-price">{formatPrice(product.price)}</p>
             <button
               className="btn-modal"

@@ -3,7 +3,6 @@ import "../styles/Cart.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import classNames from "classnames";
-import axios from "axios";
 
 interface CartItem {
   id: string;
@@ -35,7 +34,7 @@ const CartModal: React.FC<CartModalProps> = memo(
     onDecreaseQuantity,
     onRemoveProduct,
   }) => {
-    const [buttonText, setButtonText] = useState("Iniciar Compra");
+    const [buttonText] = useState("Iniciar Compra");
 
     const subtotal = cartItems.reduce(
       (total, item) => total + item.price * item.quantity,
@@ -43,33 +42,36 @@ const CartModal: React.FC<CartModalProps> = memo(
     );
     const monthlyPayment = subtotal / 12;
 
-    const productData = {
-      title: "Productos",
-      quantity: 1,
-      price: subtotal,
+    // Función para formatear los datos del pedido en un mensaje de texto
+    // Función para formatear los datos del pedido en un mensaje de texto con emojis
+    // Función para formatear los datos del pedido en un mensaje de texto con emojis y tipo de caja
+    const formatWhatsAppMessage = () => {
+      let message = "*Hola 😊, me gustaría hacer un pedido:* \n\n";
+
+      cartItems.forEach((item, index) => {
+        message += `🔹 ${index + 1}. ${item.name} \n   ➡️ Cantidad: ${
+          item.quantity
+        } \n   💸 Precio: $${item.price}`;
+
+        // Agregar tipo de caja si está seleccionado
+        if (item.selectedBox) {
+          message += `\n   📦 Caja: ${item.selectedBox}`;
+        }
+
+        message += "\n\n"; // Espacio entre productos
+      });
+      message += '*Precio de envio variable dependiento de tu ubicacion* 🛫\n\n'
+      message += `*🛎️ Total: $${subtotal}*`;
+      return message;
     };
 
-    const createPreference = async () => {
-      try {
-        console.log(
-          "Carrito de compras:",
-          JSON.stringify(productData, null, 2)
-        );
-        const response = await axios.post(
-          "https://elisir-servicio-deqkk2bpmq-uc.a.run.app/create_preference",
-          productData
-        );
-        const { redirectUrl } = response.data;
-        return redirectUrl;
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const handleBuy = async () => {
-      setButtonText("Cargando..."); // Cambia el texto a "Cargando..."
-      const url = await createPreference();
-      if (url) window.location.href = url;
+    // Función para abrir WhatsApp con los datos del pedido
+    const handleBuy = () => {
+      const message = formatWhatsAppMessage();
+      const encodedMessage = encodeURIComponent(message);
+      const phoneNumber = "3173807044"; // Reemplaza con el número de teléfono
+      const url = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(url, "_blank");
     };
 
     return (
@@ -95,7 +97,7 @@ const CartModal: React.FC<CartModalProps> = memo(
             <p className="total">Total: {formatPrice(subtotal)}</p>
             <p>O hasta 12 x {formatPrice(monthlyPayment)} sin interés</p>
             <button className="checkout-button" onClick={handleBuy}>
-              {buttonText} {/* Renderiza el texto del botón */}
+              {buttonText}
             </button>
           </div>
         </div>

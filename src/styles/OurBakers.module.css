@@ -1,85 +1,75 @@
-.bakersContainer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 10%;
-  }
-  
-section {
-  padding: 3%;
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  padding: 0px;
+  text-align: center;
+  margin: 130px 0;
 }
 
+.imageSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 40rem;
+}
+
+.textSection {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.title {
+  font-family: var(--main-font-titulos);
+  color: var(--secondary-font-color);
+  font-size: 36px;
+  margin: -10px 0 -10px 0;
+}
+
+.subtitle {
+  font-family: var(--secondary-font);
+  font-size: 24px;
+  color: #6b4e31;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 18px;
+  color: #6b4e31;
+  line-height: 1.6;
+}
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-left: 20rem;
+}
+
+@media screen and (max-width: 768px) {
+  .container {
+    display: flex;
+    flex-direction: column;
+    grid-template-columns: 1fr; /* No es necesario con flex-direction: column */
+    grid-template-rows: auto;
+  }
+
   .title {
-    font-family: var(--main-font-titulos);
-    color: var(--secondary-font-color);
-    font-size: 48px;
+    margin: -10px 0 0 0;
   }
-  
-  .subtitle {
-    font-size: 36px;
-    font-family: var(--secondary-font);
-  }
-  
-  .bakersGrid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .bakerCard {
+
+  .textSection,
+  .imageSection {
     text-align: center;
-  }
-  
-  .bakerImage {
-    width: 180px;
-    height: 300px;
-    border-radius: 5%;
-  }
-  
-  .bakerName {
-    font-size: 20px;
-    font-weight: bold;
-    margin: 10px 0 10px 0;
-  }
-  
-  .socialLinks {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-  }
-  
-  .socialIcon {
-    color: var(--third-font-color);
-    font-size: 20px;
-    text-decoration: none;
-  }
-  
-  .socialIcon:hover {
-    color: var(--third-font-color);
-  }
-  
-  .description {
-    margin-top: 5%;
-    max-width: 600px;
+    width: 100%;
   }
 
-  .description2 {
-    max-width: 600px;
+  .image {
+    margin-left: 0;
   }
-
-  .imgs {
-    width: 200px;
-    height: 200px;
-  }
-
-  @media screen and (max-width: 600px) {
-    .bakersGrid {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .bakerImage {
-      width: 100%;
-      max-width: 180px;
-      height: auto;
-    }
-  }
+}

@@ -1,92 +1,70 @@
-/* Contenedor principal */
 .container {
   display: flex;
-  align-items: flex-start;
+  flex-wrap: wrap;
   gap: 20px;
-  max-width: 900px; /* Ajusta según tu diseño */
-  margin: 120px auto 0 auto; /* Agrega margen superior */
-  padding: 20px;
-  background-color: white;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 3%;
+  max-width: 1200px;
+  margin: 100px auto;
 }
 
-/* Sección de la imagen */
 .imageSection {
   flex: 1;
-  margin: 2%;
-}
-
-/* Sección del acordeón */
-.accordionSection {
-  flex: 1.5;
-  margin: 5% 3% 5% 5%;
-}
-
-.titulo {
-  font-family: var(--main-alegreya);
-  color: var(--secondary-font-color);
-  font-size: 30px;
-  margin-bottom: 5%;
-}
-
-/* Título del acordeón */
-.accordionTitle {
-  font-size: 1.8em;
-  color: #333;
-  font-family: var(--main-alegreya);
-  font-style: italic;
-  cursor: pointer;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px;
-  background-color: #fff;
-  transition: box-shadow 0.3s ease;
+  justify-content: center;
+  align-items: start;
 }
 
-/* Icono */
-.icon {
-  transition: transform 0.3s ease;
+.image {
+  max-width: 80%;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 3rem;
 }
 
-/* Rotar icono cuando activo */
-.rotate {
-  transform: rotate(180deg);
+.textSection {
+  flex: 2;
 }
 
-/* Contenido del acordeón */
-.accordionContent {
-  background-color: var(--main-font-color);
-  padding: 5%;
-  display: none;
+.section {
+  margin-bottom: 20px;
 }
 
-.accordionContent.active {
-  display: block;
+.title {
+  font-family: var(--main-font-titulos);
+  color: var(--secondary-font-color);
+  font-size: 26px;
+  color: #333;
+  text-align: center;
 }
 
-/* Título del acordeón activo */
-.accordionTitle.active {
-  background-color: #e0e0e0;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.content {
+  font-size: 18px;
+  color: #6b4e31;
+  line-height: 1.4;
+  text-align: center;
 }
 
 @media screen and (max-width: 600px) {
   .container {
-    display: block;
-    text-align: center; /* Centra el contenido */
+    flex-direction: column; /* Alinea los elementos en una columna */
+    gap: 10px; /* Ajusta el espacio entre elementos si es necesario */
+    margin: 20px auto; /* Ajusta el margen para pantallas más pequeñas */
   }
 
   .imageSection {
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
-    margin: 0 auto 20px auto; /* Centra la imagen y agrega un margen inferior */
+    flex: none; /* Quita el comportamiento flex para estos elementos */
+    width: 100%; /* Asegura que ocupen todo el ancho disponible */
+    display: flex; /* Usa flexbox para centrar el contenido */
+    justify-content: center; /* Centra el contenido horizontalmente */
   }
 
-  .imageSection img {
-    width: 150px; /* Ajusta el tamaño de la imagen según lo necesites */
-    height: auto;
-    display: block;
-    margin: 0 auto; /* Centra la imagen dentro de su contenedor */
+  .image {
+    width: 64%; /* Establece el ancho de la imagen en 64% */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-top: 5rem; /* Ajusta el margen superior si es necesario */
+  }
+
+  .title, .content {
+    text-align: center; /* Asegura que el texto esté centrado */
+    font-size: 16px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
   }
 }

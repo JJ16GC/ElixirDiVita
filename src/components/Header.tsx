@@ -76,9 +76,9 @@ const Header: React.FC<HeaderProps> = React.memo(({ onCartClick, cartItems }) =>
             className={classNames('nav-link', { 'active': location.pathname === "/productos" })}
           >
             Productos
-          </Link>
-          
+          </Link>  
         </li>
+        
         <li className="icon nav-item">
           <a href="#" className="nav-link" onClick={onCartClick} aria-label="View cart">
             <FontAwesomeIcon icon={faBagShopping} style={{ fontSize: '2rem' }} />

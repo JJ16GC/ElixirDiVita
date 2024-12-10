@@ -4,16 +4,16 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   plugins: [react()],
   build: {
-    minify: "terser", // Usa Terser para minificación
+    minify: "terser",
     terserOptions: {
       compress: {
         drop_console: true,
-        drop_debugger: true, // Elimina debuggers
-        ecma: 2015, // Optimiza para versiones modernas de ECMAScript
-        passes: 3, // Aumenta el número de pases de compresión
+        drop_debugger: true,
+        ecma: 2015,
+        passes: 3,
       },
       output: {
-        comments: false, // Elimina comentarios
+        comments: false,
       },
     },
     rollupOptions: {
@@ -24,9 +24,12 @@ export default defineConfig({
             "react-dom",
             "react-bootstrap",
             "@fortawesome/react-fontawesome",
-          ], // Divide el código en chunks
+          ],
+          // Añade chunks adicionales según sea necesario
+          pages: ["src/pages/Home.tsx", "src/pages/Product.tsx","src/pages/About.tsx","src/pages/AboutMe.tsx"],
         },
       },
     },
+    chunkSizeWarningLimit: 600, // Ajusta el límite de tamaño de chunk para evitar advertencias
   },
 });

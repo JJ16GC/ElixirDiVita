@@ -11,8 +11,8 @@ interface BoxSelectionModalProps {
 }
 
 const boxOptions = [
-  { type: "Caja Hexagonal", imageUrl: "/images/cacao.png" },
-  { type: "Caja Rectangular", imageUrl: "/images/Plantacacao.png" },
+  { type: "Caja Hexagonal", imageUrl: "https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2FHexagonal.webp?alt=media&token=30796e41-ce87-49c2-995e-d35a1facb633" },
+  { type: "Caja Rectangular", imageUrl: "https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2FRectangular.webp?alt=media&token=57312017-7dfe-4765-98e7-2477add8b134" },
 ];
 
 const BoxSelectionModal: React.FC<BoxSelectionModalProps> = ({

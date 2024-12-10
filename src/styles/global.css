@@ -85,13 +85,18 @@ ul {
   transition: transform 0.5s;
 }
 
+.our-story {
+  margin: 20px 0 20px 0;
+  padding: 3rem;
+}
+
+.menu {
+  padding: 3rem;
+}
+
 @media screen and (min-width: 900px) {
   .navbar {
     height: 12rem;
-  }
-
-  section {
-    padding: 7.9rem;
   }
 
   .menu-toggle {
@@ -225,6 +230,9 @@ ul {
   }
 }
 
+
+
+
 /*          ANIMATIONS           */
 
 @keyframes fadeUp {
@@ -284,10 +292,14 @@ ul {
 
   .image-group {
     max-width: 35rem;
-    padding: 3rem;
   }
 
   .sub-headline {
     font-size: 3.5rem;
+  }
+
+  .our-story {
+    margin: 0;
+    padding: 2rem;
   }
 }

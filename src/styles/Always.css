@@ -1,5 +1,6 @@
 .always-fresh {
-  background: url("https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2Frellenos_prueba.webp?alt=media&token=37e67213-8c45-4898-99c7-87fb80d8bae0") center no-repeat;
+  background: url("https://firebasestorage.googleapis.com/v0/b/elixir-2c248.appspot.com/o/Pagina%2Frellenos_prueba.webp?alt=media&token=37e67213-8c45-4898-99c7-87fb80d8bae0")
+    center no-repeat;
   background-size: cover;
   padding: 4rem 0; /* Add some padding for better spacing */
 }
@@ -9,6 +10,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.always-fresh .headline-light {
+  color: white;
 }
 
 /* Animations */
@@ -23,10 +28,10 @@
 /* Additional responsiveness specific to this component */
 @media (max-width: 768px) {
   .always-fresh .sub-headline {
-    font-size: 3.5rem;
+    font-size: 7.5rem;
   }
 
   .always-fresh .headline {
-    font-size: 1.8rem;
+    font-size: 3.8rem;
   }
 }

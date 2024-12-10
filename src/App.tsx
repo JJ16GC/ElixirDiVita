@@ -8,6 +8,9 @@ import '../src/styles/global.css';
 import Loading from "./components/Loading";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import FloatingButton from "./components/FloatingButton";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
 
 Modal.setAppElement("#root");
 
@@ -17,6 +20,13 @@ const AboutMePage = lazy(() => import('./pages/AboutMe'));
 const About = lazy(() => import('./pages/About'));
 const ProductPage = lazy(() => import('./pages/Product'));
 const CRUD_Products = lazy(() => import('./pages/FormProducts'));
+
+const handleButtonClick = () => {
+  const message = encodeURIComponent("“¡Hola! ¿Podrías darme más información sobre los productos que tienen disponibles? ¡Gracias!”");
+  const phoneNumber = '3173807044'; // Reemplaza con el número de teléfono
+  const url = `https://wa.me/${phoneNumber}?text=${message}`;
+  window.open(url, "_blank");
+};
 
 function App() {
   const { products, handleAddToCart, cartItems, updateCart, removeProduct } = useCart();
@@ -52,6 +62,7 @@ function App() {
         onDecreaseQuantity={handleDecreaseQuantity}
         onRemoveProduct={removeProduct}
       />
+      <FloatingButton onClick={handleButtonClick} label={<FontAwesomeIcon icon={faWhatsapp} size="2x"/>} />
     </Router>
   );
 }
